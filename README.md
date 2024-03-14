@@ -31,7 +31,7 @@ CV Builder è un'applicazione Flutter che consente agli utenti di creare facilme
 
 Se desideri contribuire a questo progetto, sei il benvenuto! Puoi contribuire con nuove funzionalità, correzioni di bug o miglioramenti dell'interfaccia utente. Basta seguire questi passaggi:
 
-1. Forka il repository (https://github.com/tuonome/cv-builder-flutter/fork)
+1. Forka il repository (https://github.com/fagottino/cv_flutter/fork)
 2. Crea un branch con la tua modifica (`git checkout -b feature/nuova-funzionalita`)
 3. Effettua il commit delle tue modifiche (`git commit -am 'Aggiungi una nuova funzionalità'`)
 4. Pusha il tuo branch (`git push origin feature/nuova-funzionalita`)
