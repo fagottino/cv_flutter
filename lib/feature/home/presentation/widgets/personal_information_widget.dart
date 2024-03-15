@@ -24,6 +24,7 @@ class PersonalInformationWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
         children: [
+          // Icona
           Flexible(
             flex: 1,
             child: Align(
@@ -34,9 +35,11 @@ class PersonalInformationWidget extends StatelessWidget {
               ),
             ),
           ),
+          // SizedBox
           const SizedBox(
             width: 10,
           ),
+          // Testo
           Flexible(
             flex: 2,
             child: Center(
@@ -53,37 +56,4 @@ class PersonalInformationWidget extends StatelessWidget {
       ),
     );
   }
-
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Padding(
-  //     padding: const EdgeInsets.only(
-  //       top: 15,
-  //     ),
-  //     child: Row(
-  //       mainAxisAlignment: MainAxisAlignment.center,
-  //       mainAxisSize: MainAxisSize.max,
-  //       children: [
-  //         Flexible(
-  //           child: FaIcon(
-  //             icon,
-  //             size: 20,
-  //           ),
-  //         ),
-  //         const SizedBox(
-  //           width: 10,
-  //         ),
-  //         Flexible(
-  //           child: Align(
-  //             alignment: Alignment.centerLeft,
-  //             child: Text(
-  //               text,
-  //               textAlign: TextAlign.left,
-  //             ),
-  //           ),
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
 }

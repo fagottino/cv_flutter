@@ -1,24 +1,26 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import 'contact_link_dto.dart';
-
 part 'social_link_dto.g.dart';
 
 @JsonSerializable()
-class SocialLinkDto extends ContactLinkDto {
+class SocialLinkDto {
+  final String? link, icon, name, label;
   final bool? showInHeader;
 
   SocialLinkDto({
-    super.link,
-    super.icon,
-    super.name,
-    super.label,
+    this.link,
+    this.icon,
+    this.name,
+    this.label,
     this.showInHeader = false,
   });
 
   const SocialLinkDto.empty()
-      : showInHeader = false,
-        super.empty();
+      : link = '',
+      icon = '',
+      name = '',
+      label = '',
+      showInHeader = false;
 
   factory SocialLinkDto.fromJson(Map<String, dynamic> json) {
     return _$SocialLinkDtoFromJson(json);

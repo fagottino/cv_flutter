@@ -1,9 +1,11 @@
+import 'package:aorlando/feature/home/data/models/dto/skills_and_competences_dto.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'contact_link_entity.dart';
+import 'contacts_entity.dart';
 import 'driving_license_entity.dart';
 import 'educations_entity.dart';
 import 'languages_entity.dart';
+import 'skills_and_competences_entity.dart';
 import 'social_link_entity.dart';
 import 'work_experiences_entity.dart';
 
@@ -20,12 +22,14 @@ class CvEntity {
   final String city;
   final String birthDate;
   final String description;
-  final List<ContactLinkEntity> contactLinkEntityList;
+  final String privacy;
+  final List<ContactsEntity> contactsEntityList;
   final List<SocialLinkEntity> socialLinkEntityList;
   final List<WorkExperiencesEntity> workExperiencesEntityList;
   final List<EducationsEntity> educationsEntityList;
   final List<LanguagesEntity> languagesEntityList;
   final List<DrivingLicenseEntity> drivingLicenseEntityList;
+  final List<SkillsAndCompetencesEntity> skillsAndCompetencesEntityList;
 
   CvEntity({
     this.name = '',
@@ -37,12 +41,14 @@ class CvEntity {
     this.city = '',
     this.birthDate = '',
     this.description = '',
-    this.contactLinkEntityList = const [],
+    this.privacy = '',
+    this.contactsEntityList = const [],
     this.socialLinkEntityList = const [],
     this.workExperiencesEntityList = const [],
     this.educationsEntityList = const [],
     this.languagesEntityList = const [],
     this.drivingLicenseEntityList = const [],
+    this.skillsAndCompetencesEntityList = const [],
   });
 
   factory CvEntity.fromJson(Map<String, dynamic> json) {

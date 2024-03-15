@@ -5,10 +5,10 @@ import '../../domain/entities/educations_entity.dart';
 class EducationsWidget extends StatelessWidget {
   const EducationsWidget({
     super.key,
-    required this.educationsEntity,
+    required this.educationsEntityList,
   });
 
-  final EducationsEntity educationsEntity;
+  final List<EducationsEntity> educationsEntityList;
 
   @override
   Widget build(BuildContext context) {
@@ -16,48 +16,91 @@ class EducationsWidget extends StatelessWidget {
       padding: const EdgeInsets.only(
         right: 20,
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
         children: [
-          const Flexible(
-            flex: 1,
-            child: Align(
-              alignment: Alignment.topRight,
-              child: Padding(
-                padding: EdgeInsets.only(top: 5),
-                child: CircleAvatar(
-                  backgroundColor: Colors.black,
-                  radius: 5,
+          // Titolo
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Flexible(
+                flex: 1,
+                child: SizedBox(
+                  width: 70,
                 ),
               ),
-            ),
-          ),
-          const SizedBox(
-            width: 10,
-          ),
-          Flexible(
-            flex: 2,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Align(
+              Flexible(
+                flex: 2,
+                child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    educationsEntity.institute,
-                    textAlign: TextAlign.left,
-                    style: const TextStyle(fontWeight: FontWeight.bold),
+                    'Educazione'.toUpperCase(),
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-                Text(
-                  educationsEntity.title,
+              ),
+              // const Spacer(),
+            ],
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          ListView.separated(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemBuilder: (context, index) => Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                const Flexible(
+                  flex: 1,
+                  child: Align(
+                    alignment: Alignment.topRight,
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 5),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.black,
+                        radius: 5,
+                      ),
+                    ),
+                  ),
                 ),
-                Text(
-                  educationsEntity.dateFromTo,
+                const SizedBox(
+                  width: 10,
+                ),
+                Flexible(
+                  flex: 2,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          educationsEntityList[index].institute,
+                          textAlign: TextAlign.left,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      Text(
+                        educationsEntityList[index].title,
+                      ),
+                      Text(
+                        educationsEntityList[index].dateFromTo,
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
+            separatorBuilder: (context, index) => const SizedBox(
+              height: 30,
+            ),
+            itemCount: educationsEntityList.length,
           ),
         ],
       ),
