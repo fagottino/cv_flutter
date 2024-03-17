@@ -12,7 +12,6 @@
     "contacts": [
       {
         "label": "me@orlandoantonio.it",
-        "link": "me@orlandoantonio.it",
         "icon": "inbox"
       },
       {
@@ -64,7 +63,7 @@
       {
         "company": "Democom",
         "city": "Campobasso (CB)",
-        "dateFromTo": "03/2020 - 07/2022",
+        "dateFromTo": "02/2020 - 07/2022",
         "title": "Mobile Developer",
         "description":
             "Sviluppo di App ibride con Flutter (android/ios/web)\nManutenzione e sviluppo di App Android\nTeam leader sviluppo mobile cross-platform\nInstallazione e configurazione di e-commerce con Prestashop"
@@ -151,14 +150,14 @@
     ],
     "skillsAndCompetences": [
       {
-        "title": "Relazionali/Organizzative",
-        "description":
-            "Mi relaziono bene con gli altri e con la natura. Mi ritengo allegro, capace di lavorare e creare un buon ambiente sereno in un team di sviluppo. Propenso a conoscere gente nuova, preferibilmente di diverse culture.\nHo lavorato in ambienti sia statici (uffici) che dinamici (remote working/consulting). Schematizzo i grandi problemi cosi da poterli suddividere in piccoli problemi risolvibili. Buona capacità organizzativa, autonoma e non."
-      },
-      {
         "title": "Tecniche",
         "description":
             "Comprovata esperienza nella programmazione ad oggetti;\nApplicazione dei principali design pattern;\nForte attuatore dei principi SOLID e Clean Code Architecture;\nUtilizzo del modello di branching GitFlow;\nForte competenza dello state management BLoC e conoscenza di Riverpod."
+      },
+      {
+        "title": "Relazionali/Organizzative",
+        "description":
+            "Mi ritengo allegro, capace di lavorare e creare un buon ambiente sereno in un team di sviluppo. Propenso a conoscere gente nuova\nHo lavorato in ambienti sia statici (uffici) che dinamici (remote working/consulting). Schematizzo i grandi problemi così da poterli suddividere in piccoli problemi risolvibili. Buona capacità organizzativa, autonoma e non."
       }
     ],
     "drivingLicense": [

@@ -4,14 +4,14 @@ part 'contacts_entity.g.dart';
 
 @JsonSerializable()
 class ContactsEntity {
-  final String? label;
-  final String? link;
-  final String? icon;
+  final String label;
+  final String link;
+  final String icon;
 
   ContactsEntity({
-    this.link,
-    this.icon,
-    this.label,
+    required this.link,
+    required this.icon,
+    required this.label,
   });
 
   const ContactsEntity.empty()

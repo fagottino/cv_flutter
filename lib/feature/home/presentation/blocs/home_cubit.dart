@@ -17,8 +17,6 @@ class HomeCubit extends Cubit<HomeState> {
   Future<void> initData() async {
     emit(InProgress());
 
-    // await Future.delayed(const Duration(seconds: 3));
-
     final result = await homeRepository.getCv(
       assetsPath: 'assets/files/data.json',
     );

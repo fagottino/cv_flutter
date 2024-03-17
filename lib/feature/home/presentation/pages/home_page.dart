@@ -1,3 +1,4 @@
+import 'package:aorlando/core/presentation/widgets/flavor_banner.dart';
 import 'package:aorlando/feature/home/presentation/widgets/home_page_web.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -5,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/presentation/widgets/responsive.dart';
 import '../../domain/entities/cv_entity.dart';
 import '../blocs/home_cubit.dart';
-import '../widgets/home_page_mobile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -31,10 +31,12 @@ class _HomePageState extends State<HomePage> {
           Initial() => const Center(child: CircularProgressIndicator()),
           InProgress() => const Center(child: CircularProgressIndicator()),
           Error() => const Center(child: CircularProgressIndicator()),
-          Successfully(cvEntity: CvEntity cvEntity) => Responsive(
-              mobile: HomePageMobile(cvEntity: cvEntity),
-              desktop: HomePageWeb(cvEntity: cvEntity),
-            ),
+          Successfully(cvEntity: CvEntity cvEntity) => FlavorBanner(
+            child: Responsive(
+                mobile: HomePageWeb(cvEntity: cvEntity),
+                desktop: HomePageWeb(cvEntity: cvEntity),
+              ),
+          ),
         };
       },
     );

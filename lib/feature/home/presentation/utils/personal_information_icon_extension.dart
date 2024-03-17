@@ -10,6 +10,14 @@ extension PersonalInformationIconExtension on String? {
         return FontAwesomeIcons.globe;
       case "telegram":
         return FontAwesomeIcons.telegram;
+      case "linkedin":
+        return FontAwesomeIcons.linkedin;
+      case "github":
+        return FontAwesomeIcons.github;
+      case "x":
+        return FontAwesomeIcons.twitter;
+      case "instagram":
+        return FontAwesomeIcons.instagram;
       default:
         return FontAwesomeIcons.question;
     }
