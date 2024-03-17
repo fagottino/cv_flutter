@@ -1,0 +1,171 @@
+{
+    "name": "Antonio",
+    "surname": "Orlando",
+    "role": "Developer",
+    "email": "me@orlandoantonio.it",
+    "website": "orlandoantonio.it",
+    "docUrl": "./assets/files/CV_Antonio_Orlando.pdf",
+    "city": "Venafro (IS), Italia",
+    "birthDate": "27/12/1986",
+    "description": "Appassionato di informatica dal Y2K bug.\nHo lavorato con diversi linguaggi di programmazione (PHP, C#, Java, Angular, Kotlin), gli ultimi 4 anni li ho dedicati allo sviluppo di applicazioni cross-platform con Flutter.\nIn costante evoluzione aggiornando le mie conoscenze e competenze con risorse e corsi online.",
+    "privacy": "Autorizzo il trattamento dei dati personali contenuti nel mio curriculum vitae in base all’art. 13 del D. Lgs. 196/2003 e all’art. 13 del Regolamento UE 2016/679.",
+    "contacts": [
+      {
+        "label": "me@orlandoantonio.it",
+        "icon": "inbox"
+      },
+      {
+        "label": "orlandoantonio.it",
+        "link": "https://www.orlandoantonio.it",
+        "icon": "globe"
+      },
+      {
+        "label": "Telegram",
+        "link": "https://telegram.me/fagottino",
+        "icon": "telegram"
+      }
+    ],
+    "socialLink": [
+      {
+        "link": "https://www.linkedin.com/in/aorland0/",
+        "icon": "linkedin",
+        "label": "Linkedin",
+        "showInHeader": true
+      },
+      {
+        "link": "https://github.com/fagottino",
+        "icon": "github",
+        "label": "Github",
+        "showInHeader": true
+      },
+      {
+        "link": "https://twitter.com/fagottino",
+        "icon": "twitter",
+        "label": "Twitter",
+        "showInHeader": false
+      },
+      {
+        "link": "https://instagram.com/fagottinoo",
+        "icon": "instagram",
+        "label": "Instagram",
+        "showInHeader": false
+      }
+    ],
+    "workExperiences": [
+      {
+        "company": "Wakala",
+        "city": "Full remote",
+        "dateFromTo": "07/2022 - Attuale",
+        "title": "Mobile Developer",
+        "description":
+            "Sviluppo di App ibride con Flutter (android/ios/huawei/web)\nManutenzione di App Android\nTeam leader sviluppo mobile cross-platform\nClienti: MISE, MEF, Enel"
+      },
+      {
+        "company": "Democom",
+        "city": "Campobasso (CB)",
+        "dateFromTo": "02/2020 - 07/2022",
+        "title": "Mobile Developer",
+        "description":
+            "Sviluppo di App ibride con Flutter (android/ios/web)\nManutenzione e sviluppo di App Android\nTeam leader sviluppo mobile cross-platform\nInstallazione e configurazione di e-commerce con Prestashop"
+      },
+      {
+        "company": "Xeos.",
+        "city": "Isernia (IS)",
+        "dateFromTo": "04/2018 - 02/2020",
+        "title": "Full Stack developer",
+        "description":
+            "Sviluppo e manutenzione di gestionali web con Angular2+\nSviluppo servizi WS Rest con Java – Spring - Hibernate\nGestione e lavorazione ticket con interrogazione su DB2 con COBOL\nManutenzione e sviluppo di nuovi servizi su applicativi già esistenti\nClienti: Banca Intesa San Paolo, Comune di Milano"
+      },
+      {
+        "company": "Timesys srl",
+        "city": "Cassino (FR)",
+        "dateFromTo": "05/2010 - 12/2014",
+        "title": "Software developer",
+        "description":
+            "Estensione del SW baropodometrico Milletrix7 (MTX7) con sviluppo e configurazione di nuovi sistemi biometrici (3D BAK, Podoscanalizer) e nuove pedane pressorie (Multisensor 2D, Ultrasensor 3D)\nSviluppo e manutenzione di applicativi Web;\nSviluppo di WebServices SOAP.\nTecnologie: C#, SQL Server, JS, PHP, MySQL"
+      },
+      {
+        "company": "Cercaziende.it",
+        "city": "Venafro (IS)",
+        "dateFromTo": "09/2009 - 05/2010",
+        "title": "Web Developer",
+        "description":
+            "Installazione e configurazione di e-commerce con Prestashop e creazione di moduli aggiuntivi/template\nProgettazione e gestione di database relazionali;\nTecnologie: PHP, AJAX, MySQL"
+      }
+    ],
+    "educations": [
+      {
+        "institute": "Università degli Studi del Molise",
+        "cityOfInstitute": "Isernia (IS)",
+        "dateFromTo": "09/2014 - 04/2018 (non conclusa)",
+        "title": "Corso di laurea in Informatica",
+        "description":
+            "Capacità di configurazione, progettazione e creazione di un database MySQL, Access;\nCapacità di progettare e realizzare siti Web con linguaggio ServerSide di scripting Open Source quali PHP ed ASP;\nCreazione di elementi interattivi su siti web;\nCapacità di creare elementi animati per il web;\nProgettazione di pagine web HTML - XHTML;\nCapacità di configurare un sistema Client/Server"
+      },
+      {
+        "institute": "Praxis Formazione",
+        "cityOfInstitute": "Isernia (IS)",
+        "dateFromTo": "06/2008 - 12/2008",
+        "title": "Corso Web Development",
+        "description":
+            "Capacità di configurazione, progettazione e creazione di un database MySQL, Access;\nCapacità di progettare e realizzare siti Web con linguaggio ServerSide di scripting Open Source quali PHP ed ASP;\nCreazione di elementi interattivi su siti web;\nCapacità di creare elementi animati per il web;\nProgettazione di pagine web HTML - XHTML;\nCapacità di configurare un sistema Client/Server"
+      },
+      {
+        "institute": "Centro Molisano di Studi Cooperativi",
+        "cityOfInstitute": "Isernia (IS)",
+        "dateFromTo": "10/2007 - 02/2008",
+        "title": "Corso Web Design",
+        "description":
+            "Capacità di ottimizzare formati grafici, creare loghi e marchi e progettare pagine web;\nRealizzare operazioni con oggetti vettoriali nonchè operazioni bitmap;\nApplicazione di colori, tratti, riempimenti ed effetti dal vivo;\nRealizzare operazioni con livelli e maschere;\nCreazione e/o modifica di porzioni HTML e rollover\nCreazione pulsanti, menù a comparsa e/o animazione\nRealizzazione di pagine web con la gestione dei contenuti\nGestione del sito e delle immagini\nInserzione di audio nelle pagine web\nCapacità di comunicare ai clienti attraverso il web"
+      },
+      {
+        "institute": "I.T.I.S. \"E. Mattei\"",
+        "cityOfInstitute": "Isernia (IS)",
+        "dateFromTo": "06/2007",
+        "title": "Scuola statale superiore",
+        "description": "Diploma indirizzo Elettrotecnica ed Automazione."
+      }
+    ],
+    "knowledge": [
+      {"title": "Flutter", "icon": "flutter"},
+      {"title": "Dart", "icon": "dart"},
+      {"title": "Kotlin", "icon": "kotlin"},
+      {"title": "Docker", "icon": "docker"},
+      {"title": "JAVA 8", "icon": "java8"},
+      {"title": "Spring", "icon": "spring"},
+      {"title": "Hibernate", "icon": "hibernate"},
+      {"title": "C#", "icon": "cSharp"},
+      {"title": "AngularJS", "icon": "angularjs"},
+      {"title": "Angular 2", "icon": "angular2"},
+      {"title": "JS", "icon": "js"},
+      {"title": "TS", "icon": "ts"},
+      {"title": "PHP", "icon": "php"},
+      {"title": "Github", "icon": "github"},
+      {"title": "MongoDB", "icon": "mongodb"},
+      {"title": "MySQL", "icon": "mysql"}
+    ],
+    "languages": [
+      {"title": "Italiano", "level": "Madrelingua"},
+      {"title": "Inglese", "level": "B2"}
+    ],
+    "skillsAndCompetences": [
+      {
+        "title": "Tecniche",
+        "description":
+            "Comprovata esperienza nella programmazione ad oggetti;\nApplicazione dei principali design pattern;\nForte attuatore dei principi SOLID e Clean Code Architecture;\nUtilizzo del modello di branching GitFlow;\nForte competenza dello state management BLoC e conoscenza di Riverpod."
+      },
+      {
+        "title": "Relazionali/Organizzative",
+        "description":
+            "Mi ritengo allegro, capace di lavorare e creare un buon ambiente sereno in un team di sviluppo. Propenso a conoscere gente nuova\nHo lavorato in ambienti sia statici (uffici) che dinamici (remote working/consulting). Schematizzo i grandi problemi così da poterli suddividere in piccoli problemi risolvibili. Buona capacità organizzativa, autonoma e non."
+      }
+    ],
+    "drivingLicense": [
+      {
+        "value": "A"
+      },
+      {
+        "value": "B"
+      }
+    ]
+  }
