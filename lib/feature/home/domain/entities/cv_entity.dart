@@ -1,4 +1,3 @@
-import 'package:aorlando/feature/home/data/models/dto/skills_and_competences_dto.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'contacts_entity.dart';
