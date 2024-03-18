@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
@@ -49,38 +50,32 @@ class HomePageBodyMobileWidget extends StatelessWidget {
                 bottom: 20,
               ),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   // Contatti + città + compleanno
-                  Center(
-                    child: Wrap(
-                      alignment: WrapAlignment.center,
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      runAlignment: WrapAlignment.center,
-                      children: [
-                        // Contatti
-                        ...cvEntity.contactsEntityList.map(
-                          (e) => PersonalInformationWidget(
-                            icon: e.icon.getIcon,
-                            text: e.label,
-                          ),
+                  Wrap(
+                    alignment: WrapAlignment.center,
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    runAlignment: WrapAlignment.center,
+                    children: [
+                      // Contatti
+                      ...cvEntity.contactsEntityList.map(
+                        (e) => PersonalInformationWidget(
+                          icon: e.icon.getIcon,
+                          text: e.label,
                         ),
-                        // Città
-                        Flexible(
-                          child: PersonalInformationWidget(
-                            icon: FontAwesomeIcons.houseChimney,
-                            text: cvEntity.city,
-                          ),
-                        ),
-                        // Compleanno
-                        Flexible(
-                          child: PersonalInformationWidget(
-                            icon: FontAwesomeIcons.cakeCandles,
-                            text: cvEntity.birthDate,
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                      // Città
+                      PersonalInformationWidget(
+                        icon: FontAwesomeIcons.houseChimney,
+                        text: cvEntity.city,
+                      ),
+                      // Compleanno
+                      PersonalInformationWidget(
+                        icon: FontAwesomeIcons.cakeCandles,
+                        text: cvEntity.birthDate,
+                      ),
+                    ],
                   ),
                   // Divider
                   const SectionDividerWidget(),
@@ -99,17 +94,19 @@ class HomePageBodyMobileWidget extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             // Nome
-                            Text(
+                            AutoSizeText(
                               cvEntity.name,
                               style: AppTextStyles.mainTitleTextStyle,
+                              maxLines: 1,
                             ),
                             // Cognome
-                            Text(
+                            AutoSizeText(
                               cvEntity.surname,
                               style: AppTextStyles.mainTitleTextStyle,
+                              maxLines: 1,
                             ),
                             // Ruolo
-                            Text(
+                            AutoSizeText(
                               cvEntity.role,
                               style: AppTextStyles.mainDescriptionTextStyle,
                             ),
@@ -121,9 +118,12 @@ class HomePageBodyMobileWidget extends StatelessWidget {
                   // Divider
                   const SectionDividerWidget(),
                   // Profilo
-                  Text(
-                    'Profilo'.toUpperCase(),
-                    style: AppTextStyles.sectionTitleTextStyle,
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'Profilo'.toUpperCase(),
+                      style: AppTextStyles.sectionTitleTextStyle,
+                    ),
                   ),
                   // Divider
                   const SizedBox(
