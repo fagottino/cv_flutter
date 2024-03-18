@@ -7,51 +7,34 @@ part 'vertical_divider_state.dart';
 class VerticalDividerCubit extends Cubit<VerticalDividerState> {
   VerticalDividerCubit() : super(Successfully());
 
-  // Future<void> setBodyHeight({
-  //   required double height,
-  // }) async {
-  //   emit(
-  //     (state as Successfully).copyWith(
-  //       bodyHeight: height == double.infinity ? 400 : height,
-  //     ),
-  //   );
-  // }
-
-  // Future<void> setFooterHeight({
-  //   required double height,
-  // }) async {
-  //   emit(
-  //     (state as Successfully).copyWith(
-  //       footerHeight: height == double.infinity ? 400 : height,
-  //     ),
-  //   );
-  // }
-
   void getAndSetBodyHeight({
     required GlobalKey globalKey,
   }) {
-    final keyContext = globalKey.currentContext;
-    if (keyContext != null) {
-      final box = keyContext.findRenderObject() as RenderBox;
-      emit(
-        (state as Successfully).copyWith(
-          bodyHeight: box.size.height == double.infinity ? 400 : box.size.height,
-        ),
-      );
-    }
+    emit(
+      (state as Successfully).copyWith(
+        bodyHeight: _getBoxHeight(globalKey.currentContext),
+      ),
+    );
   }
 
   void getAndSetFooterHeight({
     required GlobalKey globalKey,
   }) {
-    final keyContext = globalKey.currentContext;
-    if (keyContext != null) {
-      final box = keyContext.findRenderObject() as RenderBox;
-      emit(
-        (state as Successfully).copyWith(
-          footerHeight: box.size.height == double.infinity ? 400 : box.size.height,
-        ),
-      );
+    emit(
+      (state as Successfully).copyWith(
+        footerHeight: _getBoxHeight(globalKey.currentContext),
+      ),
+    );
+  }
+
+  double _getBoxHeight(BuildContext? context) {
+    double height = 400;
+    if (context != null) {
+      final box = context.findRenderObject() as RenderBox;
+      if (box.size.height != double.infinity) {
+        height = box.size.height;
+      }
     }
+    return height;
   }
 }
