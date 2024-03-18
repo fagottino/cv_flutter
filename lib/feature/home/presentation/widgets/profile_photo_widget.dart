@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 
 class ProfilePhotoWidget extends StatelessWidget {
-  const ProfilePhotoWidget({super.key});
+  const ProfilePhotoWidget({
+    super.key,
+    this.radius,
+  });
+
+  final double? radius;
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(
+    return Padding(
+      padding: const EdgeInsets.only(
         right: 20,
       ),
       child: CircleAvatar(
-        radius: 100,
-        backgroundImage: AssetImage(
+        radius: radius,
+        backgroundImage: const AssetImage(
           'images/profile_photo.png',
         ),
         backgroundColor: Colors.transparent,

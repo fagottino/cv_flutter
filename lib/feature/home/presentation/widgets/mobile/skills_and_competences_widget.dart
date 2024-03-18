@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/presentation/styles/app_text_styles.dart';
-import '../../domain/entities/work_experiences_entity.dart';
+import '../../../../../core/presentation/styles/app_text_styles.dart';
+import '../../../domain/entities/skills_and_competences_entity.dart';
+import '../section_divider_widget.dart';
 
-class WorkExperiencesWidget extends StatelessWidget {
-  const WorkExperiencesWidget({
+class SkillsAndCompetences extends StatelessWidget {
+  const SkillsAndCompetences({
     super.key,
-    required this.workExperiencesEntityList,
+    required this.skillsAndCompetencesEntityList,
   });
 
-  final List<WorkExperiencesEntity> workExperiencesEntityList;
+  final List<SkillsAndCompetencesEntity> skillsAndCompetencesEntityList;
 
   @override
   Widget build(BuildContext context) {
@@ -18,13 +19,14 @@ class WorkExperiencesWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Esperienze Lavorative'.toUpperCase(),
+          'Competenze'.toUpperCase(),
           style: AppTextStyles.sectionTitleTextStyle,
         ),
         // Divider
         const SizedBox(
           height: 10,
         ),
+        // Competenze
         ListView.separated(
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
@@ -33,22 +35,16 @@ class WorkExperiencesWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                '${workExperiencesEntityList[index].company} | ${workExperiencesEntityList[index].title}',
+                skillsAndCompetencesEntityList[index].title,
                 style: AppTextStyles.secondaryTitleTextStyle,
               ),
               Text(
-                workExperiencesEntityList[index].dateFromTo,
-                style: AppTextStyles.secondaryTitleItalicTextStyle,
-              ),
-              Text(
-                workExperiencesEntityList[index].description,
+                skillsAndCompetencesEntityList[index].description,
               ),
             ],
           ),
-          separatorBuilder: (context, index) => const SizedBox(
-            height: 20,
-          ),
-          itemCount: workExperiencesEntityList.length,
+          separatorBuilder: (context, index) => const SectionDividerWidget(),
+          itemCount: skillsAndCompetencesEntityList.length,
         ),
       ],
     );

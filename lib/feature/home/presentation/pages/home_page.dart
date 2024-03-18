@@ -1,11 +1,12 @@
 import 'package:aorlando/core/presentation/widgets/flavor_banner.dart';
-import 'package:aorlando/feature/home/presentation/widgets/home_page_web.dart';
+import 'package:aorlando/feature/home/presentation/widgets/web/home_page_body_web_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/presentation/widgets/responsive.dart';
 import '../../domain/entities/cv_entity.dart';
 import '../blocs/home_cubit.dart';
+import '../widgets/mobile/home_page_body_mobile_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -33,8 +34,9 @@ class _HomePageState extends State<HomePage> {
           Error() => const Center(child: CircularProgressIndicator()),
           Successfully(cvEntity: CvEntity cvEntity) => PdfBannerWidget(
               child: ResponsiveWidget(
-                mobile: HomePageWeb(cvEntity: cvEntity),
-                desktop: HomePageWeb(cvEntity: cvEntity),
+                mobile: HomePageBodyMobileWidget(cvEntity: cvEntity),
+                tablet: HomePageBodyWebWidget(cvEntity: cvEntity),
+                desktop: HomePageBodyWebWidget(cvEntity: cvEntity),
               ),
             ),
         };

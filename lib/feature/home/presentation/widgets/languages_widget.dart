@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/presentation/styles/app_text_styles.dart';
+import '../../../../core/presentation/widgets/responsive.dart';
 import '../../domain/entities/languages_entity.dart';
 
 class LanguagesWidget extends StatelessWidget {
@@ -21,10 +23,13 @@ class LanguagesWidget extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Flexible(
-                flex: 1,
-                child: SizedBox(
-                  width: 70,
+              Visibility(
+                visible: !ResponsiveWidget.isMobile(context),
+                child: const Flexible(
+                  flex: 1,
+                  child: SizedBox(
+                    width: 70,
+                  ),
                 ),
               ),
               Flexible(
@@ -33,13 +38,12 @@ class LanguagesWidget extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Lingue'.toUpperCase(),
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: ResponsiveWidget.isMobile(context)
+                        ? AppTextStyles.sectionTitleTextStyle
+                        : AppTextStyles.defaultBoldTextStyle,
                   ),
                 ),
               ),
-              // const Spacer(),
             ],
           ),
           // Divider
@@ -55,21 +59,24 @@ class LanguagesWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.max,
               children: [
-                const Flexible(
-                  flex: 1,
-                  child: Align(
-                    alignment: Alignment.topRight,
-                    child: Padding(
-                      padding: EdgeInsets.only(top: 5),
-                      child: CircleAvatar(
-                        backgroundColor: Colors.black,
-                        radius: 5,
+                Visibility(
+                  visible: !ResponsiveWidget.isMobile(context),
+                  child: const Flexible(
+                    flex: 1,
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: Padding(
+                        padding: EdgeInsets.only(top: 5),
+                        child: CircleAvatar(
+                          backgroundColor: Colors.black,
+                          radius: 5,
+                        ),
                       ),
                     ),
                   ),
                 ),
-                const SizedBox(
-                  width: 10,
+                SizedBox(
+                  width: !ResponsiveWidget.isMobile(context) ? 10 : null,
                 ),
                 Flexible(
                   flex: 2,
@@ -78,7 +85,7 @@ class LanguagesWidget extends StatelessWidget {
                     child: Text(
                       '${languagesEntityList[index].title} | ${languagesEntityList[index].level}',
                       textAlign: TextAlign.left,
-                      style: const TextStyle(fontWeight: FontWeight.bold),
+                      style: AppTextStyles.defaultBoldTextStyle,
                     ),
                   ),
                 ),
