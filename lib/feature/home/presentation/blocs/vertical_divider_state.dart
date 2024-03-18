@@ -2,11 +2,6 @@ part of 'vertical_divider_cubit.dart';
 
 sealed class VerticalDividerState extends Equatable {}
 
-// class Initial extends VerticalDividerState {
-//   @override
-//   List<Object?> get props => [];
-// }
-
 class Successfully extends VerticalDividerState {
   Successfully({
     this.bodyHeight = 0,

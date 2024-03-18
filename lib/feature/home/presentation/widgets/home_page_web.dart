@@ -1,8 +1,6 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../core/presentation/styles/app_colors.dart';
 import '../../domain/entities/cv_entity.dart';
@@ -11,8 +9,13 @@ import '../utils/personal_information_icon_extension.dart';
 import 'driving_license_widget.dart';
 import 'educations_widget.dart';
 import 'languages_widget.dart';
+import 'made_with_flutter_widget.dart';
 import 'personal_information_widget.dart';
+import 'profile_photo_widget.dart';
+import 'social_links_widget.dart';
 import 'work_experiences_widget.dart';
+
+part 'section_divider_widget.dart';
 
 class HomePageWeb extends StatefulWidget {
   const HomePageWeb({
@@ -33,8 +36,12 @@ class _HomePageWebState extends State<HomePageWeb> with WidgetsBindingObserver {
   @override
   void didChangeMetrics() {
     super.didChangeMetrics();
-    getBodyHeight();
-    getFooterHeight();
+    context.read<VerticalDividerCubit>().getAndSetBodyHeight(
+          globalKey: bodyKey,
+        );
+    context.read<VerticalDividerCubit>().getAndSetFooterHeight(
+          globalKey: footerKey,
+        );
   }
 
   @override
@@ -42,30 +49,14 @@ class _HomePageWebState extends State<HomePageWeb> with WidgetsBindingObserver {
     WidgetsBinding.instance.addObserver(_HomePageWebState());
 
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      getBodyHeight();
-      getFooterHeight();
+      context.read<VerticalDividerCubit>().getAndSetBodyHeight(
+            globalKey: bodyKey,
+          );
+      context.read<VerticalDividerCubit>().getAndSetFooterHeight(
+            globalKey: footerKey,
+          );
     });
     super.initState();
-  }
-
-  void getBodyHeight() {
-    final keyContext = bodyKey.currentContext;
-    if (keyContext != null) {
-      final box = keyContext.findRenderObject() as RenderBox;
-      context.read<VerticalDividerCubit>().setBodyHeight(
-            height: box.size.height,
-          );
-    }
-  }
-
-  void getFooterHeight() {
-    final keyContext = footerKey.currentContext;
-    if (keyContext != null) {
-      final box = keyContext.findRenderObject() as RenderBox;
-      context.read<VerticalDividerCubit>().setFooterHeight(
-            height: box.size.height,
-          );
-    }
   }
 
   @override
@@ -74,41 +65,9 @@ class _HomePageWebState extends State<HomePageWeb> with WidgetsBindingObserver {
       appBar: AppBar(
         backgroundColor: AppColors.primaryColor,
         toolbarHeight: 25,
-        title: SizedBox(
-          height: 30,
-          child: Padding(
-            padding: const EdgeInsets.only(
-              top: 5,
-              bottom: 5,
-            ),
-            child: ListView.separated(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) => GestureDetector(
-                onTap: () => launchUrl(
-                  Uri.parse(
-                    widget.cvEntity.socialLinkEntityList[index].link,
-                  ),
-                ),
-                child: MouseRegion(
-                  cursor: SystemMouseCursors.click,
-                  child: FaIcon(
-                    widget.cvEntity.socialLinkEntityList[index].icon.getIcon,
-                    size: 20,
-                  ),
-                ),
-              ),
-              separatorBuilder: (context, index) => const SizedBox(
-                width: 10,
-              ),
-              itemCount: widget.cvEntity.socialLinkEntityList
-                  .where((element) => element.showInHeader)
-                  .length,
-            ),
-          ),
+        title: SocialLinksWidget(
+          socialLinkEntityList: widget.cvEntity.socialLinkEntityList,
         ),
-        // centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: SelectionArea(
@@ -136,18 +95,7 @@ class _HomePageWebState extends State<HomePageWeb> with WidgetsBindingObserver {
                         children: [
                           // Foto
                           const Center(
-                            child: Padding(
-                              padding: EdgeInsets.only(
-                                right: 20,
-                              ),
-                              child: CircleAvatar(
-                                radius: 100,
-                                backgroundImage: AssetImage(
-                                  'images/fagottino.png',
-                                ),
-                                backgroundColor: Colors.transparent,
-                              ),
-                            ),
+                            child: ProfilePhotoWidget(),
                           ),
                           // Contatti
                           ...widget.cvEntity.contactsEntityList.map(
@@ -168,9 +116,7 @@ class _HomePageWebState extends State<HomePageWeb> with WidgetsBindingObserver {
                             text: widget.cvEntity.birthDate,
                           ),
                           // Divider
-                          const SizedBox(
-                            height: 30,
-                          ),
+                          const SectionDividerWidget(),
                           // Istruzione
                           Visibility(
                             visible: widget.cvEntity.educationsEntityList.isNotEmpty,
@@ -179,9 +125,7 @@ class _HomePageWebState extends State<HomePageWeb> with WidgetsBindingObserver {
                             ),
                           ),
                           // Divider
-                          const SizedBox(
-                            height: 30,
-                          ),
+                          const SectionDividerWidget(),
                           // Lingue
                           Visibility(
                             visible: widget.cvEntity.educationsEntityList.isNotEmpty,
@@ -190,9 +134,7 @@ class _HomePageWebState extends State<HomePageWeb> with WidgetsBindingObserver {
                             ),
                           ),
                           // SizedBox
-                          const SizedBox(
-                            height: 30,
-                          ),
+                          const SectionDividerWidget(),
                           // Istruzione
                           Visibility(
                             visible: widget.cvEntity.drivingLicenseEntityList.isNotEmpty,
@@ -237,12 +179,15 @@ class _HomePageWebState extends State<HomePageWeb> with WidgetsBindingObserver {
                               flex: 4,
                               child: LayoutBuilder(
                                 builder: (context, constraints) {
-                                  getBodyHeight();
+                                  context.read<VerticalDividerCubit>().getAndSetBodyHeight(
+                                        globalKey: bodyKey,
+                                      );
                                   return Column(
                                     key: bodyKey,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
+                                      // Nome + Cognome
                                       Text(
                                         '${widget.cvEntity.name} ${widget.cvEntity.surname}',
                                         style: const TextStyle(
@@ -264,6 +209,7 @@ class _HomePageWebState extends State<HomePageWeb> with WidgetsBindingObserver {
                                       const SizedBox(
                                         height: 60,
                                       ),
+                                      // Profilo
                                       Text(
                                         'Profilo'.toUpperCase(),
                                         style: const TextStyle(
@@ -271,16 +217,13 @@ class _HomePageWebState extends State<HomePageWeb> with WidgetsBindingObserver {
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
+                                      // Descrizione profilo
                                       Text(
                                         widget.cvEntity.description,
-                                        style: const TextStyle(
-                                          fontSize: 18,
-                                        ),
                                       ),
                                       // Divider
-                                      const SizedBox(
-                                        height: 30,
-                                      ),
+                                      const SectionDividerWidget(),
+                                      // Esperienze lavorative
                                       Visibility(
                                         visible:
                                             widget.cvEntity.workExperiencesEntityList.isNotEmpty,
@@ -399,22 +342,27 @@ class _HomePageWebState extends State<HomePageWeb> with WidgetsBindingObserver {
                         ),
                         child: LayoutBuilder(
                           builder: (context, constraints) {
-                            getFooterHeight();
+                            context.read<VerticalDividerCubit>().getAndSetFooterHeight(
+                                  globalKey: footerKey,
+                                );
                             return Column(
                               key: footerKey,
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 // Divider
-                                const SizedBox(
-                                  height: 30,
-                                ),
+                                const SectionDividerWidget(),
+                                // Competenze
                                 Text(
                                   'Competenze'.toUpperCase(),
                                   style: const TextStyle(
                                     fontSize: 30,
                                     fontWeight: FontWeight.bold,
                                   ),
+                                ),
+                                // Divider
+                                const SizedBox(
+                                  height: 10,
                                 ),
                                 ListView.separated(
                                   physics: const NeverScrollableScrollPhysics(),
@@ -436,9 +384,8 @@ class _HomePageWebState extends State<HomePageWeb> with WidgetsBindingObserver {
                                       ),
                                     ],
                                   ),
-                                  separatorBuilder: (context, index) => const SizedBox(
-                                    height: 30,
-                                  ),
+                                  separatorBuilder: (context, index) =>
+                                      const SectionDividerWidget(),
                                   itemCount: widget.cvEntity.skillsAndCompetencesEntityList.length,
                                 ),
                               ],
@@ -450,56 +397,10 @@ class _HomePageWebState extends State<HomePageWeb> with WidgetsBindingObserver {
                   ],
                 ),
                 // Divider
-                const SizedBox(
-                  height: 40,
-                ),
-                Center(
-                  child: RichText(
-                    text: TextSpan(
-                      children: [
-                        const TextSpan(
-                          text: 'Made with',
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
-                        ),
-                        const WidgetSpan(
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 4,
-                            ),
-                            child: Icon(
-                              FontAwesomeIcons.heart,
-                              size: 16,
-                              color: Colors.red,
-                            ),
-                          ),
-                        ),
-                        const TextSpan(
-                          text: 'with',
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
-                        ),
-                        const WidgetSpan(
-                          child: SizedBox(
-                            width: 4,
-                          ),
-                        ),
-                        TextSpan(
-                          text: 'Flutter',
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              launchUrl(
-                                Uri.parse(
-                                  'https://flutter.dev/',
-                                ),
-                              );
-                            },
-                        ),
-                      ],
-                    ),
-                  ),
+                const SectionDividerWidget(),
+                // Made with Flutter
+                const Center(
+                  child: MadeWithFlutterWidget(),
                 ),
               ],
             ),

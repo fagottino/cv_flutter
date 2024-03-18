@@ -67,7 +67,7 @@ class HomePageMobile extends StatelessWidget {
                           ...cvEntity.contactsEntityList.map(
                             (e) => PersonalInformationWidget(
                               icon: e.icon.getIcon,
-                              text: e.label ?? '',
+                              text: e.label,
                             ),
                           ),
                           // Città
