@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class FlavorBanner extends StatelessWidget {
-  const FlavorBanner({super.key, required this.child});
+class PdfBannerWidget extends StatelessWidget {
+  const PdfBannerWidget({super.key, required this.child});
   final Widget child;
-  // final BannerConfig bannerConfig = BannerConfig(
-  //   bannerName: FlavorConfig.instance.name,
-  //   bannerColor: FlavorConfig.instance.color,
-  // );
 
   @override
   Widget build(BuildContext context) {
@@ -45,13 +41,4 @@ class FlavorBanner extends StatelessWidget {
       ),
     );
   }
-}
-
-class BannerConfig {
-  BannerConfig({
-    required this.bannerName,
-    required this.bannerColor,
-  });
-  final String bannerName;
-  final Color bannerColor;
 }

@@ -4,19 +4,18 @@
     "role": "Developer",
     "email": "me@orlandoantonio.it",
     "website": "orlandoantonio.it",
-    "docUrl": "./assets/files/CV_Antonio_Orlando.pdf",
     "city": "Venafro (IS), Italia",
     "birthDate": "27/12/1986",
     "description": "Appassionato di informatica dal Y2K bug.\nHo lavorato con diversi linguaggi di programmazione (PHP, C#, Java, Angular, Kotlin), gli ultimi 4 anni li ho dedicati allo sviluppo di applicazioni cross-platform con Flutter.\nIn costante evoluzione aggiornando le mie conoscenze e competenze con risorse e corsi online.",
     "privacy": "Autorizzo il trattamento dei dati personali contenuti nel mio curriculum vitae in base all’art. 13 del D. Lgs. 196/2003 e all’art. 13 del Regolamento UE 2016/679.",
     "contacts": [
       {
-        "label": "me@orlandoantonio.it",
+        "label": "me@aorlando.it",
         "icon": "inbox"
       },
       {
-        "label": "orlandoantonio.it",
-        "link": "https://www.orlandoantonio.it",
+        "label": "aorlando.it",
+        "link": "https://www.aorlando.it",
         "icon": "globe"
       },
       {
@@ -126,27 +125,9 @@
         "description": "Diploma indirizzo Elettrotecnica ed Automazione."
       }
     ],
-    "knowledge": [
-      {"title": "Flutter", "icon": "flutter"},
-      {"title": "Dart", "icon": "dart"},
-      {"title": "Kotlin", "icon": "kotlin"},
-      {"title": "Docker", "icon": "docker"},
-      {"title": "JAVA 8", "icon": "java8"},
-      {"title": "Spring", "icon": "spring"},
-      {"title": "Hibernate", "icon": "hibernate"},
-      {"title": "C#", "icon": "cSharp"},
-      {"title": "AngularJS", "icon": "angularjs"},
-      {"title": "Angular 2", "icon": "angular2"},
-      {"title": "JS", "icon": "js"},
-      {"title": "TS", "icon": "ts"},
-      {"title": "PHP", "icon": "php"},
-      {"title": "Github", "icon": "github"},
-      {"title": "MongoDB", "icon": "mongodb"},
-      {"title": "MySQL", "icon": "mysql"}
-    ],
     "languages": [
       {"title": "Italiano", "level": "Madrelingua"},
-      {"title": "Inglese", "level": "B2"}
+      {"title": "Inglese", "level": "B1"}
     ],
     "skillsAndCompetences": [
       {

@@ -31,12 +31,12 @@ class _HomePageState extends State<HomePage> {
           Initial() => const Center(child: CircularProgressIndicator()),
           InProgress() => const Center(child: CircularProgressIndicator()),
           Error() => const Center(child: CircularProgressIndicator()),
-          Successfully(cvEntity: CvEntity cvEntity) => FlavorBanner(
-            child: Responsive(
+          Successfully(cvEntity: CvEntity cvEntity) => PdfBannerWidget(
+              child: ResponsiveWidget(
                 mobile: HomePageWeb(cvEntity: cvEntity),
                 desktop: HomePageWeb(cvEntity: cvEntity),
               ),
-          ),
+            ),
         };
       },
     );
