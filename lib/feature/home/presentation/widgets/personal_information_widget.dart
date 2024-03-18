@@ -5,7 +5,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class PersonalInformationWidget extends StatelessWidget {
-  const PersonalInformationWidget({super.key, required this.icon, required this.text, this.link});
+  const PersonalInformationWidget({
+    super.key,
+    required this.icon,
+    required this.text,
+    this.link,
+  });
 
   final IconData icon;
   final String text;

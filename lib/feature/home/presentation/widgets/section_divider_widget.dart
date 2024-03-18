@@ -1,4 +1,4 @@
-part of 'home_page_web.dart';
+import 'package:flutter/widgets.dart';
 
 class SectionDividerWidget extends StatelessWidget {
   const SectionDividerWidget({super.key});

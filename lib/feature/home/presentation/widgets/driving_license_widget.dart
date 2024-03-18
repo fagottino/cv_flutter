@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/presentation/styles/app_text_styles.dart';
+import '../../../../core/presentation/widgets/responsive.dart';
 import '../../domain/entities/driving_license_entity.dart';
 
 class DrivingLicenseWidget extends StatelessWidget {
@@ -17,16 +19,20 @@ class DrivingLicenseWidget extends StatelessWidget {
         right: 20,
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Titolo
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Flexible(
-                flex: 1,
-                child: SizedBox(
-                  width: 70,
+              Visibility(
+                visible: !ResponsiveWidget.isMobile(context),
+                child: const Flexible(
+                  flex: 1,
+                  child: SizedBox(
+                    width: 70,
+                  ),
                 ),
               ),
               Flexible(
@@ -35,40 +41,44 @@ class DrivingLicenseWidget extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Patenti'.toUpperCase(),
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: ResponsiveWidget.isMobile(context)
+                        ? AppTextStyles.sectionTitleTextStyle
+                        : AppTextStyles.defaultBoldTextStyle,
                   ),
                 ),
               ),
-              // const Spacer(),
             ],
           ),
           const SizedBox(
             height: 20,
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             mainAxisSize: MainAxisSize.max,
             children: [
-              const Flexible(
-                flex: 1,
-                child: Align(
-                  alignment: Alignment.topRight,
-                  child: Padding(
-                    padding: EdgeInsets.only(top: 5),
-                    child: CircleAvatar(
-                      backgroundColor: Colors.black,
-                      radius: 5,
+              Visibility(
+                visible: !ResponsiveWidget.isMobile(context),
+                child: const Flexible(
+                  flex: 1,
+                  child: Align(
+                    alignment: Alignment.topRight,
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 5),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.black,
+                        radius: 5,
+                      ),
                     ),
                   ),
                 ),
               ),
-              const SizedBox(
-                width: 10,
+              SizedBox(
+                width: !ResponsiveWidget.isMobile(context) ? 10 : null,
               ),
               Flexible(
                 flex: 2,
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Align(
@@ -76,9 +86,7 @@ class DrivingLicenseWidget extends StatelessWidget {
                       child: Text(
                         drivingLicenseEntityList.map((e) => e.value).toList().join(' | '),
                         textAlign: TextAlign.left,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: AppTextStyles.defaultBoldTextStyle,
                       ),
                     ),
                   ],

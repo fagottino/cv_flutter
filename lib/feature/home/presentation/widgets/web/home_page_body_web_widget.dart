@@ -2,23 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../../../core/presentation/styles/app_colors.dart';
-import '../../domain/entities/cv_entity.dart';
-import '../blocs/vertical_divider_cubit.dart';
-import '../utils/personal_information_icon_extension.dart';
-import 'driving_license_widget.dart';
-import 'educations_widget.dart';
-import 'languages_widget.dart';
-import 'made_with_flutter_widget.dart';
-import 'personal_information_widget.dart';
-import 'profile_photo_widget.dart';
-import 'social_links_widget.dart';
-import 'work_experiences_widget.dart';
+import '../../../../../core/presentation/styles/app_colors.dart';
+import '../../../../../core/presentation/styles/app_text_styles.dart';
+import '../../../domain/entities/cv_entity.dart';
+import '../../blocs/vertical_divider_cubit.dart';
+import '../../utils/personal_information_icon_extension.dart';
+import '../made_with_flutter_widget.dart';
+import '../driving_license_widget.dart';
+import '../educations_widget.dart';
+import '../section_divider_widget.dart';
+import '../languages_widget.dart';
+import '../personal_information_widget.dart';
+import 'privacy_widget.dart';
+import '../profile_photo_widget.dart';
+import 'skills_and_competences_widget.dart';
+import '../social_links_widget.dart';
+import '../work_experiences_widget.dart';
 
-part 'section_divider_widget.dart';
-
-class HomePageWeb extends StatefulWidget {
-  const HomePageWeb({
+class HomePageBodyWebWidget extends StatefulWidget {
+  const HomePageBodyWebWidget({
     super.key,
     required this.cvEntity,
   });
@@ -26,10 +28,10 @@ class HomePageWeb extends StatefulWidget {
   final CvEntity cvEntity;
 
   @override
-  State<HomePageWeb> createState() => _HomePageWebState();
+  State<HomePageBodyWebWidget> createState() => _HomePageBodyWebWidgetState();
 }
 
-class _HomePageWebState extends State<HomePageWeb> with WidgetsBindingObserver {
+class _HomePageBodyWebWidgetState extends State<HomePageBodyWebWidget> with WidgetsBindingObserver {
   GlobalKey bodyKey = GlobalKey();
   GlobalKey footerKey = GlobalKey();
 
@@ -46,7 +48,7 @@ class _HomePageWebState extends State<HomePageWeb> with WidgetsBindingObserver {
 
   @override
   void initState() {
-    WidgetsBinding.instance.addObserver(_HomePageWebState());
+    WidgetsBinding.instance.addObserver(_HomePageBodyWebWidgetState());
 
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       context.read<VerticalDividerCubit>().getAndSetBodyHeight(
@@ -95,7 +97,9 @@ class _HomePageWebState extends State<HomePageWeb> with WidgetsBindingObserver {
                         children: [
                           // Foto
                           const Center(
-                            child: ProfilePhotoWidget(),
+                            child: ProfilePhotoWidget(
+                              radius: 100,
+                            ),
                           ),
                           // Contatti
                           ...widget.cvEntity.contactsEntityList.map(
@@ -135,7 +139,7 @@ class _HomePageWebState extends State<HomePageWeb> with WidgetsBindingObserver {
                           ),
                           // SizedBox
                           const SectionDividerWidget(),
-                          // Istruzione
+                          // Patenti
                           Visibility(
                             visible: widget.cvEntity.drivingLicenseEntityList.isNotEmpty,
                             child: DrivingLicenseWidget(
@@ -190,11 +194,7 @@ class _HomePageWebState extends State<HomePageWeb> with WidgetsBindingObserver {
                                       // Nome + Cognome
                                       Text(
                                         '${widget.cvEntity.name} ${widget.cvEntity.surname}',
-                                        style: const TextStyle(
-                                          fontSize: 50,
-                                          color: AppColors.primaryColor,
-                                          letterSpacing: 10,
-                                        ),
+                                        style: AppTextStyles.mainTitleTextStyle,
                                       ),
                                       // Ruolo
                                       Text(
@@ -212,10 +212,11 @@ class _HomePageWebState extends State<HomePageWeb> with WidgetsBindingObserver {
                                       // Profilo
                                       Text(
                                         'Profilo'.toUpperCase(),
-                                        style: const TextStyle(
-                                          fontSize: 30,
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                                        style: AppTextStyles.sectionTitleTextStyle,
+                                      ),
+                                      // Divider
+                                      const SizedBox(
+                                        height: 10,
                                       ),
                                       // Descrizione profilo
                                       Text(
@@ -249,71 +250,8 @@ class _HomePageWebState extends State<HomePageWeb> with WidgetsBindingObserver {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     // Privacy
-                    Expanded(
-                      flex: 1,
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 20),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                // Spacer
-                                const Flexible(
-                                  flex: 1,
-                                  child: SizedBox(
-                                    width: 70,
-                                  ),
-                                ),
-                                // Titolo
-                                Flexible(
-                                  flex: 2,
-                                  child: Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Text(
-                                      'Privacy'.toUpperCase(),
-                                      style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            // SizedBox
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            // Testo
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                // Spacer
-                                const Flexible(
-                                  flex: 1,
-                                  child: SizedBox(
-                                    width: 70,
-                                  ),
-                                ),
-                                // Testo
-                                Flexible(
-                                  flex: 2,
-                                  child: Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: Text(
-                                      widget.cvEntity.privacy,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
+                    PrivacyWidget(
+                      text: widget.cvEntity.privacy,
                     ),
                     // Vertical Divider
                     BlocBuilder<VerticalDividerCubit, VerticalDividerState>(
@@ -334,65 +272,10 @@ class _HomePageWebState extends State<HomePageWeb> with WidgetsBindingObserver {
                       },
                     ),
                     // Competenze
-                    Expanded(
-                      flex: 2,
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                          left: 50,
-                        ),
-                        child: LayoutBuilder(
-                          builder: (context, constraints) {
-                            context.read<VerticalDividerCubit>().getAndSetFooterHeight(
-                                  globalKey: footerKey,
-                                );
-                            return Column(
-                              key: footerKey,
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                // Divider
-                                const SectionDividerWidget(),
-                                // Competenze
-                                Text(
-                                  'Competenze'.toUpperCase(),
-                                  style: const TextStyle(
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                // Divider
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                ListView.separated(
-                                  physics: const NeverScrollableScrollPhysics(),
-                                  shrinkWrap: true,
-                                  itemBuilder: (context, index) => Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        widget.cvEntity.skillsAndCompetencesEntityList[index].title,
-                                        style: const TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      Text(
-                                        widget.cvEntity.skillsAndCompetencesEntityList[index]
-                                            .description,
-                                      ),
-                                    ],
-                                  ),
-                                  separatorBuilder: (context, index) =>
-                                      const SectionDividerWidget(),
-                                  itemCount: widget.cvEntity.skillsAndCompetencesEntityList.length,
-                                ),
-                              ],
-                            );
-                          },
-                        ),
-                      ),
+                    SkillsAndCompetences(
+                      footerKey: footerKey,
+                      skillsAndCompetencesEntityList:
+                          widget.cvEntity.skillsAndCompetencesEntityList,
                     ),
                   ],
                 ),
