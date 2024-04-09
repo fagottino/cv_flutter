@@ -1,7 +1,7 @@
+import 'package:aorlando/feature/home/domain/use_cases/get_cv_use_case.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../feature/home/domain/repositories/home_repository.dart';
 import '../../feature/home/presentation/blocs/home_cubit.dart';
 import '../../feature/home/presentation/blocs/vertical_divider_cubit.dart';
 
@@ -19,7 +19,7 @@ class AppBlocProvider extends StatelessWidget {
       providers: [
         BlocProvider<HomeCubit>(
           create: (blocProviderContext) => HomeCubit(
-            homeRepository: RepositoryProvider.of<HomeRepository>(context),
+            getCvUseCase: RepositoryProvider.of<GetCvUseCase>(context),
           ),
         ),
         BlocProvider<VerticalDividerCubit>(

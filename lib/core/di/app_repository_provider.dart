@@ -14,7 +14,7 @@ class AppRepositoryProvider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
+    return MultiRepositoryProvider(
       providers: [
         RepositoryProvider<HomeRepository>(
           create: (context) => HomeRepositoryImpl(),

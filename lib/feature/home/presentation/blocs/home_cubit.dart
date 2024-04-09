@@ -3,22 +3,22 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/utils/errors/failure_entity.dart';
 import '../../domain/entities/cv_entity.dart';
-import '../../domain/repositories/home_repository.dart';
+import '../../domain/use_cases/get_cv_use_case.dart';
 
 part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit({
-    required this.homeRepository,
+    required this.getCvUseCase,
   }) : super(Initial());
 
-  final HomeRepository homeRepository;
+  final GetCvUseCase getCvUseCase;
 
   Future<void> initData() async {
     emit(InProgress());
 
-    final result = await homeRepository.getCv(
-      assetsPath: 'assets/files/data.json',
+    final result = await getCvUseCase.call(
+      'assets/files/data.json',
     );
 
     result.fold(
