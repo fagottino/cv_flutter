@@ -1,12 +1,12 @@
-import 'package:aorlando/core/presentation/widgets/flavor_banner.dart';
-import 'package:aorlando/feature/home/presentation/widgets/web/home_page_body_web_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/presentation/widgets/flavor_banner.dart';
 import '../../../../core/presentation/widgets/responsive.dart';
 import '../../domain/entities/cv_entity.dart';
 import '../blocs/home_cubit.dart';
 import '../widgets/mobile/home_page_body_mobile_widget.dart';
+import '../widgets/web/home_page_body_web_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
