@@ -4,11 +4,7 @@ part 'work_experiences_dto.g.dart';
 
 @JsonSerializable()
 class WorkExperiencesDto {
-  final String? company;
-  final String? city;
-  final String? dateFromTo;
-  final String? title;
-  final String? description;
+  final String? company, city, dateFromTo, title, description;
 
   WorkExperiencesDto({
     this.company,
