@@ -31,6 +31,9 @@ migrate_working_dir/
 .pub/
 /build/
 /coverage/
+genhtml_config
+run_test.sh
+test/coverage_helper_test.dart
 
 # Symbolication related
 app.*.symbols

@@ -15,11 +15,13 @@ dependencies:
     sdk: flutter
   font_awesome_flutter: ^10.7.0
   json_annotation: ^4.8.1
+  mockito: ^5.4.4
   provider: ^6.1.2
   url_launcher: ^6.2.5
   web_smooth_scroll: ^1.1.0
 
 dev_dependencies:
+  bloc_test: ^9.1.0
   build_runner: ^2.4.8
   dartz: ^0.10.1
   equatable: ^2.0.5
