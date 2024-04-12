@@ -23,7 +23,7 @@ class AppRepositoryProvider extends StatelessWidget {
         ),
         RepositoryProvider<HomeRepository>(
           create: (context) => HomeRepositoryImpl(
-            localDataSource: context.read<AssetsDataSource>()
+            localDataSource: context.read<LocalDataSource>(),
           ),
         ),
       ],
