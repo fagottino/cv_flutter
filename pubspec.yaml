@@ -21,6 +21,7 @@ dependencies:
   web_smooth_scroll: ^1.1.0
 
 dev_dependencies:
+  bloc_test: ^9.1.0
   build_runner: ^2.4.8
   dartz: ^0.10.1
   equatable: ^2.0.5

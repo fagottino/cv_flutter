@@ -5,13 +5,29 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i5;
 
+import 'package:aorlando/core/utils/errors/failure_entity.dart' as _i6;
+import 'package:aorlando/feature/home/domain/entities/contacts_entity.dart'
+    as _i9;
+import 'package:aorlando/feature/home/domain/entities/cv_entity.dart' as _i7;
+import 'package:aorlando/feature/home/domain/entities/driving_license_entity.dart'
+    as _i14;
+import 'package:aorlando/feature/home/domain/entities/educations_entity.dart'
+    as _i12;
+import 'package:aorlando/feature/home/domain/entities/languages_entity.dart'
+    as _i13;
+import 'package:aorlando/feature/home/domain/entities/skills_and_competences_entity.dart'
+    as _i15;
+import 'package:aorlando/feature/home/domain/entities/social_link_entity.dart'
+    as _i10;
+import 'package:aorlando/feature/home/domain/entities/work_experiences_entity.dart'
+    as _i11;
 import 'package:aorlando/feature/home/domain/repositories/home_repository.dart'
     as _i2;
-import 'package:aorlando/feature/home/presentation/blocs/home_cubit.dart'
-    as _i3;
-import 'package:flutter_bloc/flutter_bloc.dart' as _i6;
+import 'package:aorlando/feature/home/domain/use_cases/get_cv_use_case.dart'
+    as _i4;
+import 'package:dartz/dartz.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:mockito/src/dummies.dart' as _i4;
+import 'package:mockito/src/dummies.dart' as _i8;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -37,10 +53,20 @@ class _FakeHomeRepository_0 extends _i1.SmartFake
         );
 }
 
-/// A class which mocks [HomeCubit].
+class _FakeEither_1<L, R> extends _i1.SmartFake implements _i3.Either<L, R> {
+  _FakeEither_1(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+/// A class which mocks [GetCvUseCase].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockHomeCubit extends _i1.Mock implements _i3.HomeCubit {
+class MockGetCvUseCase extends _i1.Mock implements _i4.GetCvUseCase {
   @override
   _i2.HomeRepository get homeRepository => (super.noSuchMethod(
         Invocation.getter(#homeRepository),
@@ -55,99 +81,227 @@ class MockHomeCubit extends _i1.Mock implements _i3.HomeCubit {
       ) as _i2.HomeRepository);
 
   @override
-  _i3.HomeState get state => (super.noSuchMethod(
-        Invocation.getter(#state),
-        returnValue: _i4.dummyValue<_i3.HomeState>(
-          this,
-          Invocation.getter(#state),
-        ),
-        returnValueForMissingStub: _i4.dummyValue<_i3.HomeState>(
-          this,
-          Invocation.getter(#state),
-        ),
-      ) as _i3.HomeState);
-
-  @override
-  _i5.Stream<_i3.HomeState> get stream => (super.noSuchMethod(
-        Invocation.getter(#stream),
-        returnValue: _i5.Stream<_i3.HomeState>.empty(),
-        returnValueForMissingStub: _i5.Stream<_i3.HomeState>.empty(),
-      ) as _i5.Stream<_i3.HomeState>);
-
-  @override
-  bool get isClosed => (super.noSuchMethod(
-        Invocation.getter(#isClosed),
-        returnValue: false,
-        returnValueForMissingStub: false,
-      ) as bool);
-
-  @override
-  _i5.Future<void> initData() => (super.noSuchMethod(
+  _i5.Future<_i3.Either<_i6.FailureEntity, _i7.CvEntity>> call(
+          String? assetPath) =>
+      (super.noSuchMethod(
         Invocation.method(
-          #initData,
+          #call,
+          [assetPath],
+        ),
+        returnValue:
+            _i5.Future<_i3.Either<_i6.FailureEntity, _i7.CvEntity>>.value(
+                _FakeEither_1<_i6.FailureEntity, _i7.CvEntity>(
+          this,
+          Invocation.method(
+            #call,
+            [assetPath],
+          ),
+        )),
+        returnValueForMissingStub:
+            _i5.Future<_i3.Either<_i6.FailureEntity, _i7.CvEntity>>.value(
+                _FakeEither_1<_i6.FailureEntity, _i7.CvEntity>(
+          this,
+          Invocation.method(
+            #call,
+            [assetPath],
+          ),
+        )),
+      ) as _i5.Future<_i3.Either<_i6.FailureEntity, _i7.CvEntity>>);
+}
+
+/// A class which mocks [CvEntity].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockCvEntity extends _i1.Mock implements _i7.CvEntity {
+  @override
+  String get name => (super.noSuchMethod(
+        Invocation.getter(#name),
+        returnValue: _i8.dummyValue<String>(
+          this,
+          Invocation.getter(#name),
+        ),
+        returnValueForMissingStub: _i8.dummyValue<String>(
+          this,
+          Invocation.getter(#name),
+        ),
+      ) as String);
+
+  @override
+  String get surname => (super.noSuchMethod(
+        Invocation.getter(#surname),
+        returnValue: _i8.dummyValue<String>(
+          this,
+          Invocation.getter(#surname),
+        ),
+        returnValueForMissingStub: _i8.dummyValue<String>(
+          this,
+          Invocation.getter(#surname),
+        ),
+      ) as String);
+
+  @override
+  String get role => (super.noSuchMethod(
+        Invocation.getter(#role),
+        returnValue: _i8.dummyValue<String>(
+          this,
+          Invocation.getter(#role),
+        ),
+        returnValueForMissingStub: _i8.dummyValue<String>(
+          this,
+          Invocation.getter(#role),
+        ),
+      ) as String);
+
+  @override
+  String get email => (super.noSuchMethod(
+        Invocation.getter(#email),
+        returnValue: _i8.dummyValue<String>(
+          this,
+          Invocation.getter(#email),
+        ),
+        returnValueForMissingStub: _i8.dummyValue<String>(
+          this,
+          Invocation.getter(#email),
+        ),
+      ) as String);
+
+  @override
+  String get website => (super.noSuchMethod(
+        Invocation.getter(#website),
+        returnValue: _i8.dummyValue<String>(
+          this,
+          Invocation.getter(#website),
+        ),
+        returnValueForMissingStub: _i8.dummyValue<String>(
+          this,
+          Invocation.getter(#website),
+        ),
+      ) as String);
+
+  @override
+  String get docUrl => (super.noSuchMethod(
+        Invocation.getter(#docUrl),
+        returnValue: _i8.dummyValue<String>(
+          this,
+          Invocation.getter(#docUrl),
+        ),
+        returnValueForMissingStub: _i8.dummyValue<String>(
+          this,
+          Invocation.getter(#docUrl),
+        ),
+      ) as String);
+
+  @override
+  String get city => (super.noSuchMethod(
+        Invocation.getter(#city),
+        returnValue: _i8.dummyValue<String>(
+          this,
+          Invocation.getter(#city),
+        ),
+        returnValueForMissingStub: _i8.dummyValue<String>(
+          this,
+          Invocation.getter(#city),
+        ),
+      ) as String);
+
+  @override
+  String get birthDate => (super.noSuchMethod(
+        Invocation.getter(#birthDate),
+        returnValue: _i8.dummyValue<String>(
+          this,
+          Invocation.getter(#birthDate),
+        ),
+        returnValueForMissingStub: _i8.dummyValue<String>(
+          this,
+          Invocation.getter(#birthDate),
+        ),
+      ) as String);
+
+  @override
+  String get description => (super.noSuchMethod(
+        Invocation.getter(#description),
+        returnValue: _i8.dummyValue<String>(
+          this,
+          Invocation.getter(#description),
+        ),
+        returnValueForMissingStub: _i8.dummyValue<String>(
+          this,
+          Invocation.getter(#description),
+        ),
+      ) as String);
+
+  @override
+  String get privacy => (super.noSuchMethod(
+        Invocation.getter(#privacy),
+        returnValue: _i8.dummyValue<String>(
+          this,
+          Invocation.getter(#privacy),
+        ),
+        returnValueForMissingStub: _i8.dummyValue<String>(
+          this,
+          Invocation.getter(#privacy),
+        ),
+      ) as String);
+
+  @override
+  List<_i9.ContactsEntity> get contactsEntityList => (super.noSuchMethod(
+        Invocation.getter(#contactsEntityList),
+        returnValue: <_i9.ContactsEntity>[],
+        returnValueForMissingStub: <_i9.ContactsEntity>[],
+      ) as List<_i9.ContactsEntity>);
+
+  @override
+  List<_i10.SocialLinkEntity> get socialLinkEntityList => (super.noSuchMethod(
+        Invocation.getter(#socialLinkEntityList),
+        returnValue: <_i10.SocialLinkEntity>[],
+        returnValueForMissingStub: <_i10.SocialLinkEntity>[],
+      ) as List<_i10.SocialLinkEntity>);
+
+  @override
+  List<_i11.WorkExperiencesEntity> get workExperiencesEntityList =>
+      (super.noSuchMethod(
+        Invocation.getter(#workExperiencesEntityList),
+        returnValue: <_i11.WorkExperiencesEntity>[],
+        returnValueForMissingStub: <_i11.WorkExperiencesEntity>[],
+      ) as List<_i11.WorkExperiencesEntity>);
+
+  @override
+  List<_i12.EducationsEntity> get educationsEntityList => (super.noSuchMethod(
+        Invocation.getter(#educationsEntityList),
+        returnValue: <_i12.EducationsEntity>[],
+        returnValueForMissingStub: <_i12.EducationsEntity>[],
+      ) as List<_i12.EducationsEntity>);
+
+  @override
+  List<_i13.LanguagesEntity> get languagesEntityList => (super.noSuchMethod(
+        Invocation.getter(#languagesEntityList),
+        returnValue: <_i13.LanguagesEntity>[],
+        returnValueForMissingStub: <_i13.LanguagesEntity>[],
+      ) as List<_i13.LanguagesEntity>);
+
+  @override
+  List<_i14.DrivingLicenseEntity> get drivingLicenseEntityList =>
+      (super.noSuchMethod(
+        Invocation.getter(#drivingLicenseEntityList),
+        returnValue: <_i14.DrivingLicenseEntity>[],
+        returnValueForMissingStub: <_i14.DrivingLicenseEntity>[],
+      ) as List<_i14.DrivingLicenseEntity>);
+
+  @override
+  List<_i15.SkillsAndCompetencesEntity> get skillsAndCompetencesEntityList =>
+      (super.noSuchMethod(
+        Invocation.getter(#skillsAndCompetencesEntityList),
+        returnValue: <_i15.SkillsAndCompetencesEntity>[],
+        returnValueForMissingStub: <_i15.SkillsAndCompetencesEntity>[],
+      ) as List<_i15.SkillsAndCompetencesEntity>);
+
+  @override
+  Map<String, dynamic> toJson() => (super.noSuchMethod(
+        Invocation.method(
+          #toJson,
           [],
         ),
-        returnValue: _i5.Future<void>.value(),
-        returnValueForMissingStub: _i5.Future<void>.value(),
-      ) as _i5.Future<void>);
-
-  @override
-  void emit(_i3.HomeState? state) => super.noSuchMethod(
-        Invocation.method(
-          #emit,
-          [state],
-        ),
-        returnValueForMissingStub: null,
-      );
-
-  @override
-  void onChange(_i6.Change<_i3.HomeState>? change) => super.noSuchMethod(
-        Invocation.method(
-          #onChange,
-          [change],
-        ),
-        returnValueForMissingStub: null,
-      );
-
-  @override
-  void addError(
-    Object? error, [
-    StackTrace? stackTrace,
-  ]) =>
-      super.noSuchMethod(
-        Invocation.method(
-          #addError,
-          [
-            error,
-            stackTrace,
-          ],
-        ),
-        returnValueForMissingStub: null,
-      );
-
-  @override
-  void onError(
-    Object? error,
-    StackTrace? stackTrace,
-  ) =>
-      super.noSuchMethod(
-        Invocation.method(
-          #onError,
-          [
-            error,
-            stackTrace,
-          ],
-        ),
-        returnValueForMissingStub: null,
-      );
-
-  @override
-  _i5.Future<void> close() => (super.noSuchMethod(
-        Invocation.method(
-          #close,
-          [],
-        ),
-        returnValue: _i5.Future<void>.value(),
-        returnValueForMissingStub: _i5.Future<void>.value(),
-      ) as _i5.Future<void>);
+        returnValue: <String, dynamic>{},
+        returnValueForMissingStub: <String, dynamic>{},
+      ) as Map<String, dynamic>);
 }
