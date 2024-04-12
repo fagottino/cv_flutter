@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/presentation/widgets/flavor_banner.dart';
-import '../../../../core/presentation/widgets/responsive.dart';
+import '../../../../core/presentation/widgets/pdf_banner_widget.dart';
+import '../../../../core/presentation/widgets/responsive_widget.dart';
 import '../../domain/entities/cv_entity.dart';
 import '../blocs/home_cubit.dart';
 import '../widgets/mobile/home_page_body_mobile_widget.dart';
