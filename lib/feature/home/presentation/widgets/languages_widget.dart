@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/presentation/styles/app_text_styles.dart';
-import '../../../../core/presentation/widgets/responsive.dart';
+import '../../../../core/presentation/widgets/responsive_widget.dart';
 import '../../domain/entities/languages_entity.dart';
 
 class LanguagesWidget extends StatelessWidget {

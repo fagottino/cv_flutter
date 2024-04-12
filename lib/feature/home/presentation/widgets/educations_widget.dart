@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/presentation/styles/app_text_styles.dart';
-import '../../../../core/presentation/widgets/responsive.dart';
+import '../../../../core/presentation/widgets/responsive_widget.dart';
 import '../../domain/entities/educations_entity.dart';
 
 class EducationsWidget extends StatelessWidget {
