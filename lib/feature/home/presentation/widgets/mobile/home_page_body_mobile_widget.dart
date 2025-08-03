@@ -1,7 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
 import '../../../../../core/presentation/styles/app_colors.dart';
 import '../../../../../core/presentation/styles/app_text_styles.dart';
@@ -20,13 +19,12 @@ import 'privacy_widget.dart';
 import 'skills_and_competences_widget.dart';
 
 class HomePageBodyMobileWidget extends StatelessWidget {
-  HomePageBodyMobileWidget({
+  const HomePageBodyMobileWidget({
     super.key,
     required this.cvEntity,
   });
 
   final CvEntity cvEntity;
-  final ScrollController _webSmoothScrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -38,168 +36,165 @@ class HomePageBodyMobileWidget extends StatelessWidget {
           socialLinkEntityList: cvEntity.socialLinkEntityList,
         ),
       ),
-      body: WebSmoothScroll(
-        controller: _webSmoothScrollController,
-        child: SingleChildScrollView(
-          child: SelectionArea(
-            child: Padding(
-              padding: const EdgeInsets.only(
-                top: 20,
-                left: 15,
-                right: 15,
-                bottom: 20,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  // Contatti + città + compleanno
-                  Wrap(
-                    alignment: WrapAlignment.center,
-                    crossAxisAlignment: WrapCrossAlignment.center,
-                    runAlignment: WrapAlignment.center,
-                    children: [
-                      // Contatti
-                      ...cvEntity.contactsEntityList.map(
-                        (e) => PersonalInformationWidget(
-                          icon: e.icon.getIcon,
-                          text: e.label,
-                        ),
+      body: SingleChildScrollView(
+        child: SelectionArea(
+          child: Padding(
+            padding: const EdgeInsets.only(
+              top: 20,
+              left: 15,
+              right: 15,
+              bottom: 20,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                // Contatti + città + compleanno
+                Wrap(
+                  alignment: WrapAlignment.center,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  runAlignment: WrapAlignment.center,
+                  children: [
+                    // Contatti
+                    ...cvEntity.contactsEntityList.map(
+                      (e) => PersonalInformationWidget(
+                        icon: e.icon.getIcon,
+                        text: e.label,
                       ),
-                      // Città
-                      PersonalInformationWidget(
-                        icon: FontAwesomeIcons.houseChimney,
-                        text: cvEntity.city,
+                    ),
+                    // Città
+                    PersonalInformationWidget(
+                      icon: FontAwesomeIcons.houseChimney,
+                      text: cvEntity.city,
+                    ),
+                    // Compleanno
+                    PersonalInformationWidget(
+                      icon: FontAwesomeIcons.cakeCandles,
+                      text: cvEntity.birthDate,
+                    ),
+                  ],
+                ),
+                // Divider
+                const SectionDividerWidget(),
+                // Foto + Nome + Cognome
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    // Foto profilo
+                    const ProfilePhotoWidget(
+                      radius: 80,
+                    ),
+                    // Nome + Cognome
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // Nome
+                          AutoSizeText(
+                            cvEntity.name,
+                            style: AppTextStyles.mainTitleTextStyle,
+                            maxLines: 1,
+                          ),
+                          // Cognome
+                          AutoSizeText(
+                            cvEntity.surname,
+                            style: AppTextStyles.mainTitleTextStyle,
+                            maxLines: 1,
+                          ),
+                          // Ruolo
+                          AutoSizeText(
+                            cvEntity.role,
+                            style: AppTextStyles.mainDescriptionTextStyle,
+                          ),
+                        ],
                       ),
-                      // Compleanno
-                      PersonalInformationWidget(
-                        icon: FontAwesomeIcons.cakeCandles,
-                        text: cvEntity.birthDate,
-                      ),
-                    ],
-                  ),
-                  // Divider
-                  const SectionDividerWidget(),
-                  // Foto + Nome + Cognome
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      // Foto profilo
-                      const ProfilePhotoWidget(
-                        radius: 80,
-                      ),
-                      // Nome + Cognome
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            // Nome
-                            AutoSizeText(
-                              cvEntity.name,
-                              style: AppTextStyles.mainTitleTextStyle,
-                              maxLines: 1,
-                            ),
-                            // Cognome
-                            AutoSizeText(
-                              cvEntity.surname,
-                              style: AppTextStyles.mainTitleTextStyle,
-                              maxLines: 1,
-                            ),
-                            // Ruolo
-                            AutoSizeText(
-                              cvEntity.role,
-                              style: AppTextStyles.mainDescriptionTextStyle,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  // Divider
-                  const SectionDividerWidget(),
-                  // Profilo
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'Profilo'.toUpperCase(),
-                      style: AppTextStyles.sectionTitleTextStyle,
                     ),
+                  ],
+                ),
+                // Divider
+                const SectionDividerWidget(),
+                // Profilo
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Profilo'.toUpperCase(),
+                    style: AppTextStyles.sectionTitleTextStyle,
                   ),
-                  // Divider
-                  const SizedBox(
-                    height: 10,
+                ),
+                // Divider
+                const SizedBox(
+                  height: 10,
+                ),
+                // Descrizione profilo
+                Text(
+                  cvEntity.description,
+                ),
+                // Divider
+                const SectionDividerWidget(),
+                // Esperienze lavorative
+                Visibility(
+                  visible: cvEntity.workExperiencesEntityList.isNotEmpty,
+                  child: WorkExperiencesWidget(
+                    workExperiencesEntityList: cvEntity.workExperiencesEntityList,
                   ),
-                  // Descrizione profilo
-                  Text(
-                    cvEntity.description,
+                ),
+                // Divider
+                const SectionDividerWidget(),
+                // Istruzione
+                Visibility(
+                  visible: cvEntity.educationsEntityList.isNotEmpty,
+                  child: EducationsWidget(
+                    educationsEntityList: cvEntity.educationsEntityList,
                   ),
-                  // Divider
-                  const SectionDividerWidget(),
-                  // Esperienze lavorative
-                  Visibility(
-                    visible: cvEntity.workExperiencesEntityList.isNotEmpty,
-                    child: WorkExperiencesWidget(
-                      workExperiencesEntityList: cvEntity.workExperiencesEntityList,
-                    ),
+                ),
+                // Divider
+                const SectionDividerWidget(),
+                // Lingue
+                Visibility(
+                  visible: cvEntity.educationsEntityList.isNotEmpty,
+                  child: LanguagesWidget(
+                    languagesEntityList: cvEntity.languagesEntityList,
                   ),
-                  // Divider
-                  const SectionDividerWidget(),
-                  // Istruzione
-                  Visibility(
-                    visible: cvEntity.educationsEntityList.isNotEmpty,
-                    child: EducationsWidget(
-                      educationsEntityList: cvEntity.educationsEntityList,
-                    ),
+                ),
+                // SizedBox
+                const SectionDividerWidget(),
+                // Patenti
+                Visibility(
+                  visible: cvEntity.drivingLicenseEntityList.isNotEmpty,
+                  child: DrivingLicenseWidget(
+                    drivingLicenseEntityList: cvEntity.drivingLicenseEntityList,
                   ),
-                  // Divider
-                  const SectionDividerWidget(),
-                  // Lingue
-                  Visibility(
-                    visible: cvEntity.educationsEntityList.isNotEmpty,
-                    child: LanguagesWidget(
-                      languagesEntityList: cvEntity.languagesEntityList,
-                    ),
+                ),
+                // Divider
+                const SectionDividerWidget(),
+                // Competenze
+                SkillsAndCompetences(
+                  skillsAndCompetencesEntityList: cvEntity.skillsAndCompetencesEntityList,
+                ),
+                // Divider
+                const SectionDividerWidget(),
+                // Privacy
+                PrivacyWidget(
+                  text: cvEntity.privacy,
+                ),
+                // Divider
+                const SectionDividerWidget(),
+                // Divider
+                Container(
+                  height: 1,
+                  decoration: const BoxDecoration(
+                    color: AppColors.primaryColor,
                   ),
-                  // SizedBox
-                  const SectionDividerWidget(),
-                  // Patenti
-                  Visibility(
-                    visible: cvEntity.drivingLicenseEntityList.isNotEmpty,
-                    child: DrivingLicenseWidget(
-                      drivingLicenseEntityList: cvEntity.drivingLicenseEntityList,
-                    ),
-                  ),
-                  // Divider
-                  const SectionDividerWidget(),
-                  // Competenze
-                  SkillsAndCompetences(
-                    skillsAndCompetencesEntityList: cvEntity.skillsAndCompetencesEntityList,
-                  ),
-                  // Divider
-                  const SectionDividerWidget(),
-                  // Privacy
-                  PrivacyWidget(
-                    text: cvEntity.privacy,
-                  ),
-                  // Divider
-                  const SectionDividerWidget(),
-                  // Divider
-                  Container(
-                    height: 1,
-                    decoration: const BoxDecoration(
-                      color: AppColors.primaryColor,
-                    ),
-                  ),
-                  // Divider
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  // Made with Flutter
-                  const Center(
-                    child: MadeWithFlutterWidget(),
-                  ),
-                ],
-              ),
+                ),
+                // Divider
+                const SizedBox(
+                  height: 20,
+                ),
+                // Made with Flutter
+                const Center(
+                  child: MadeWithFlutterWidget(),
+                ),
+              ],
             ),
           ),
         ),
