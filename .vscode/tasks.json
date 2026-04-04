@@ -22,7 +22,7 @@
         "command": "bash",
         "args": [
             "-c",
-            "fvm flutter clean && fvm flutter pub get && dart run build_runner build --delete-conflicting-outputs"
+            "fvm flutter clean && fvm flutter pub get && fvm dart run build_runner build --delete-conflicting-outputs"
         ],
         "presentation": {
             "reveal": "always",
@@ -34,8 +34,9 @@
     {
         "label": "Flutter Build Runner",
         "type": "shell",
-        "command": "dart",
+        "command": "fvm",
         "args": [
+            "dart",
             "run",
             "build_runner",
             "build",
@@ -60,7 +61,7 @@
       "command": "bash",
       "args": [
         "-c",
-        "dart update_app_version.dart && fvm flutter build apk --release -t lib/main_dev.dart --flavor dev"
+        "fvm dart update_app_version.dart && fvm flutter build apk --release -t lib/main_dev.dart --flavor dev"
       ],
       "group": {
         "kind": "build",
@@ -79,7 +80,7 @@
       "command": "bash",
       "args": [
         "-c",
-        "dart update_app_version.dart && fvm flutter build apk --release -t lib/main_stag.dart --flavor stag"
+        "fvm dart update_app_version.dart && fvm flutter build apk --release -t lib/main_stag.dart --flavor stag"
       ],
       "group": {
         "kind": "build",
@@ -98,7 +99,7 @@
       "command": "bash",
       "args": [
         "-c",
-        "dart update_app_version.dart && fvm flutter build apk --release -t lib/main.dart --flavor prod"
+        "fvm dart update_app_version.dart && fvm flutter build apk --release -t lib/main.dart --flavor prod"
       ],
       "group": {
         "kind": "build",
