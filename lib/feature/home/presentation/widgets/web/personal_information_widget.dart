@@ -52,8 +52,9 @@ class PersonalInformationWidget extends StatelessWidget {
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: MouseRegion(
-                    cursor:
-                        link?.isEmpty ?? true ? SystemMouseCursors.text : SystemMouseCursors.click,
+                    cursor: link?.isEmpty ?? true
+                        ? SystemMouseCursors.text
+                        : SystemMouseCursors.click,
                     child: AbsorbPointer(
                       absorbing: link?.isEmpty ?? true,
                       child: Text(

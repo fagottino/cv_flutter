@@ -23,16 +23,19 @@ class PdfBannerWidget extends StatelessWidget {
           Positioned(
             right: 0,
             // bottom: 0,
-            child: SizedBox(
-              width: 50,
-              height: 50,
-              child: CustomPaint(
-                painter: BannerPainter(
-                  message: 'PDF VERSION',
-                  textDirection: Directionality.of(context),
-                  layoutDirection: Directionality.of(context),
-                  location: BannerLocation.topEnd,
-                  color: Colors.blue,
+            child: MouseRegion(
+              cursor: SystemMouseCursors.click,
+              child: SizedBox(
+                width: 50,
+                height: 50,
+                child: CustomPaint(
+                  painter: BannerPainter(
+                    message: 'PDF VERSION',
+                    textDirection: Directionality.of(context),
+                    layoutDirection: Directionality.of(context),
+                    location: BannerLocation.topEnd,
+                    color: Colors.blue,
+                  ),
                 ),
               ),
             ),

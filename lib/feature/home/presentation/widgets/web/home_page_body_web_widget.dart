@@ -41,11 +41,11 @@ class _HomePageBodyWebWidgetState extends State<HomePageBodyWebWidget> with Widg
   void didChangeMetrics() {
     super.didChangeMetrics();
     context.read<VerticalDividerCubit>().getAndSetBodyHeight(
-          globalKey: bodyKey,
-        );
+      globalKey: bodyKey,
+    );
     context.read<VerticalDividerCubit>().getAndSetFooterHeight(
-          globalKey: footerKey,
-        );
+      globalKey: footerKey,
+    );
   }
 
   @override
@@ -54,11 +54,11 @@ class _HomePageBodyWebWidgetState extends State<HomePageBodyWebWidget> with Widg
 
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       context.read<VerticalDividerCubit>().getAndSetBodyHeight(
-            globalKey: bodyKey,
-          );
+        globalKey: bodyKey,
+      );
       context.read<VerticalDividerCubit>().getAndSetFooterHeight(
-            globalKey: footerKey,
-          );
+        globalKey: footerKey,
+      );
     });
     super.initState();
   }
@@ -83,6 +83,7 @@ class _HomePageBodyWebWidgetState extends State<HomePageBodyWebWidget> with Widg
       body: WebSmoothScroll(
         controller: _webSmoothScrollController,
         child: SingleChildScrollView(
+          controller: _webSmoothScrollController,
           child: SelectionArea(
             child: Padding(
               padding: const EdgeInsets.only(
@@ -198,8 +199,8 @@ class _HomePageBodyWebWidgetState extends State<HomePageBodyWebWidget> with Widg
                                 child: LayoutBuilder(
                                   builder: (context, constraints) {
                                     context.read<VerticalDividerCubit>().getAndSetBodyHeight(
-                                          globalKey: bodyKey,
-                                        );
+                                      globalKey: bodyKey,
+                                    );
                                     return Column(
                                       key: bodyKey,
                                       mainAxisAlignment: MainAxisAlignment.start,
