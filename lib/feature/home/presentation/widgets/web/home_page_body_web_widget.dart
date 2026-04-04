@@ -8,17 +8,17 @@ import '../../../../../core/presentation/styles/app_text_styles.dart';
 import '../../../domain/entities/cv_entity.dart';
 import '../../blocs/vertical_divider_cubit.dart';
 import '../../utils/personal_information_icon_extension.dart';
-import '../made_with_flutter_widget.dart';
 import '../driving_license_widget.dart';
 import '../educations_widget.dart';
-import '../section_divider_widget.dart';
 import '../languages_widget.dart';
-import 'personal_information_widget.dart';
-import 'privacy_widget.dart';
+import '../made_with_flutter_widget.dart';
 import '../profile_photo_widget.dart';
-import 'skills_and_competences_widget.dart';
+import '../section_divider_widget.dart';
 import '../social_links_widget.dart';
 import '../work_experiences_widget.dart';
+import 'personal_information_widget.dart';
+import 'privacy_widget.dart';
+import 'skills_and_competences_widget.dart';
 
 class HomePageBodyWebWidget extends StatefulWidget {
   const HomePageBodyWebWidget({
@@ -50,7 +50,7 @@ class _HomePageBodyWebWidgetState extends State<HomePageBodyWebWidget> with Widg
 
   @override
   void initState() {
-    WidgetsBinding.instance.addObserver(_HomePageBodyWebWidgetState());
+    WidgetsBinding.instance.addObserver(this);
 
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       context.read<VerticalDividerCubit>().getAndSetBodyHeight(
@@ -61,6 +61,13 @@ class _HomePageBodyWebWidgetState extends State<HomePageBodyWebWidget> with Widg
           );
     });
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    _webSmoothScrollController.dispose();
+    super.dispose();
   }
 
   @override
@@ -119,9 +126,12 @@ class _HomePageBodyWebWidgetState extends State<HomePageBodyWebWidget> with Widg
                               text: widget.cvEntity.city,
                             ),
                             // Compleanno
-                            PersonalInformationWidget(
-                              icon: FontAwesomeIcons.cakeCandles,
-                              text: widget.cvEntity.birthDate,
+                            Visibility(
+                              visible: widget.cvEntity.birthDate.isNotEmpty,
+                              child: PersonalInformationWidget(
+                                icon: FontAwesomeIcons.cakeCandles,
+                                text: widget.cvEntity.birthDate,
+                              ),
                             ),
                             // Divider
                             const SectionDividerWidget(),
