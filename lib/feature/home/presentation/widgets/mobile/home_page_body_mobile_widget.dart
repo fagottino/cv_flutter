@@ -67,9 +67,12 @@ class HomePageBodyMobileWidget extends StatelessWidget {
                       text: cvEntity.city,
                     ),
                     // Compleanno
-                    PersonalInformationWidget(
-                      icon: FontAwesomeIcons.cakeCandles,
-                      text: cvEntity.birthDate,
+                    Visibility(
+                      visible: cvEntity.birthDate.isNotEmpty,
+                      child: PersonalInformationWidget(
+                        icon: FontAwesomeIcons.cakeCandles,
+                        text: cvEntity.birthDate,
+                      ),
                     ),
                   ],
                 ),

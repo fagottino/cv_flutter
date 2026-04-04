@@ -6,29 +6,29 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.3.1 <4.0.0'
+  sdk: '>=3.8.0 <4.0.0'
   
 dependencies:
   auto_size_text: ^3.0.0
-  cupertino_icons: ^1.0.6
+  cupertino_icons: ^1.0.9
   flutter:
     sdk: flutter
-  font_awesome_flutter: ^10.7.0
-  json_annotation: ^4.8.1
+  font_awesome_flutter: ^10.12.0
+  json_annotation: ^4.11.0
   mockito: ^5.4.4
   provider: ^6.1.2
   url_launcher: ^6.2.5
   web_smooth_scroll: ^1.1.0
 
 dev_dependencies:
-  bloc_test: ^9.1.0
-  build_runner: ^2.4.8
+  bloc_test: ^9.1.7
+  build_runner: ^2.13.1
   dartz: ^0.10.1
-  equatable: ^2.0.5
+  equatable: ^2.0.8
   flutter_bloc: ^8.1.4
   flutter_test:
     sdk: flutter
-  json_serializable: ^6.7.1
+  json_serializable: ^6.13.1
   
   flutter_lints: ^3.0.0
   
