@@ -1,3 +1,4 @@
+import 'package:aorlando/core/utils/errors/failure_code_enum.dart';
 import 'package:equatable/equatable.dart';
 
 sealed class FailureEntity extends Equatable {
@@ -5,28 +6,22 @@ sealed class FailureEntity extends Equatable {
     required FailureEntity failureEntity,
   }) {
     return switch (failureEntity) {
-      Server() => "Server failure",
-      DataParsing() => "Data parsing failure",
-      NoConnection() => "No internet connection",
-      CustomFailure<dynamic>() => "CustomFailure"
+      Server() => FailureCode.serverFailure,
+      DataParsing() => FailureCode.dataParsing,
+      NoConnection() => FailureCode.noConnection,
+      CustomFailure<dynamic>(:final data) => data.toString(),
     };
   }
-}
 
-class Server extends FailureEntity {
   @override
   List<Object?> get props => [];
 }
 
-class DataParsing extends FailureEntity {
-  @override
-  List<Object?> get props => [];
-}
+class Server extends FailureEntity {}
 
-class NoConnection extends FailureEntity {
-  @override
-  List<Object?> get props => [];
-}
+class DataParsing extends FailureEntity {}
+
+class NoConnection extends FailureEntity {}
 
 class CustomFailure<T> extends FailureEntity {
   CustomFailure({

@@ -1,6 +1,8 @@
+import 'package:aorlando/core/presentation/styles/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/presentation/widgets/app_error_state_widget.dart';
 import '../../../../core/presentation/widgets/pdf_banner_widget.dart';
 import '../../../../core/presentation/widgets/responsive_widget.dart';
 import '../../domain/entities/cv_entity.dart';
@@ -30,16 +32,30 @@ class _HomePageState extends State<HomePage> {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         return switch (state) {
-          Initial() => const Center(child: CircularProgressIndicator()),
-          InProgress() => const Center(child: CircularProgressIndicator()),
-          Error() => const Center(child: CircularProgressIndicator()),
           Successfully(cvEntity: CvEntity cvEntity) => PdfBannerWidget(
-              child: ResponsiveWidget(
-                mobile: HomePageBodyMobileWidget(cvEntity: cvEntity),
-                tablet: HomePageBodyWebWidget(cvEntity: cvEntity),
-                desktop: HomePageBodyWebWidget(cvEntity: cvEntity),
-              ),
+            child: ResponsiveWidget(
+              mobile: HomePageBodyMobileWidget(cvEntity: cvEntity),
+              tablet: HomePageBodyWebWidget(cvEntity: cvEntity),
+              desktop: HomePageBodyWebWidget(cvEntity: cvEntity),
             ),
+          ),
+          Error(:final errorMessage) => Scaffold(
+            appBar: AppBar(
+              backgroundColor: AppColors.primaryColor,
+              toolbarHeight: 25,
+            ),
+            body: AppErrorStateWidget(
+              message: errorMessage,
+              onRetry: () {
+                context.read<HomeCubit>().initData();
+              },
+            ),
+          ),
+          _ => const Scaffold(
+            body: Center(
+              child: CircularProgressIndicator(),
+            ),
+          ),
         };
       },
     );

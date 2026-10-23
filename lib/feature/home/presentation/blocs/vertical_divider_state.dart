@@ -1,9 +1,7 @@
 part of 'vertical_divider_cubit.dart';
 
-sealed class VerticalDividerState extends Equatable {}
-
-class Successfully extends VerticalDividerState {
-  Successfully({
+sealed class VerticalDividerState extends Equatable {
+  const VerticalDividerState({
     this.bodyHeight = 0,
     this.footerHeight = 0,
   });
@@ -13,7 +11,16 @@ class Successfully extends VerticalDividerState {
 
   @override
   List<Object?> get props => [bodyHeight, footerHeight];
+}
 
+class Successfully extends VerticalDividerState {
+  const Successfully({
+    super.bodyHeight = 0,
+    super.footerHeight = 0,
+  });
+
+  @override
+  List<Object?> get props => [bodyHeight, footerHeight];
 
   Successfully copyWith({
     double? bodyHeight,
