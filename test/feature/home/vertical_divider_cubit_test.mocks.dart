@@ -30,26 +30,21 @@ import 'package:mockito/src/dummies.dart' as _i8;
 // ignore_for_file: invalid_use_of_internal_member
 
 class _FakeWidget_0 extends _i1.SmartFake implements _i2.Widget {
-  _FakeWidget_0(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+  _FakeWidget_0(Object parent, Invocation parentInvocation) : super(parent, parentInvocation);
 
   @override
-  String toString({_i3.DiagnosticLevel? minLevel = _i3.DiagnosticLevel.info}) =>
-      super.toString();
+  String toString({_i3.DiagnosticLevel? minLevel = _i3.DiagnosticLevel.info}) => super.toString();
 }
 
-class _FakeInheritedWidget_1 extends _i1.SmartFake
-    implements _i2.InheritedWidget {
+class _FakeInheritedWidget_1 extends _i1.SmartFake implements _i2.InheritedWidget {
   _FakeInheritedWidget_1(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 
   @override
-  String toString({_i3.DiagnosticLevel? minLevel = _i3.DiagnosticLevel.info}) =>
-      super.toString();
+  String toString({_i3.DiagnosticLevel? minLevel = _i3.DiagnosticLevel.info}) => super.toString();
 }
 
-class _FakeDiagnosticsNode_2 extends _i1.SmartFake
-    implements _i3.DiagnosticsNode {
+class _FakeDiagnosticsNode_2 extends _i1.SmartFake implements _i3.DiagnosticsNode {
   _FakeDiagnosticsNode_2(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 
@@ -61,38 +56,31 @@ class _FakeDiagnosticsNode_2 extends _i1.SmartFake
 }
 
 class _FakeSize_3 extends _i1.SmartFake implements _i4.Size {
-  _FakeSize_3(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+  _FakeSize_3(Object parent, Invocation parentInvocation) : super(parent, parentInvocation);
 }
 
 class _FakeRect_4 extends _i1.SmartFake implements _i4.Rect {
-  _FakeRect_4(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+  _FakeRect_4(Object parent, Invocation parentInvocation) : super(parent, parentInvocation);
 }
 
-class _FakeBoxConstraints_5 extends _i1.SmartFake
-    implements _i5.BoxConstraints {
+class _FakeBoxConstraints_5 extends _i1.SmartFake implements _i5.BoxConstraints {
   _FakeBoxConstraints_5(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 }
 
 class _FakeOffset_6 extends _i1.SmartFake implements _i4.Offset {
-  _FakeOffset_6(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+  _FakeOffset_6(Object parent, Invocation parentInvocation) : super(parent, parentInvocation);
 }
 
 class _FakeOffsetLayer_7 extends _i1.SmartFake implements _i5.OffsetLayer {
-  _FakeOffsetLayer_7(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+  _FakeOffsetLayer_7(Object parent, Invocation parentInvocation) : super(parent, parentInvocation);
 
   @override
-  String toString({_i3.DiagnosticLevel? minLevel = _i3.DiagnosticLevel.info}) =>
-      super.toString();
+  String toString({_i3.DiagnosticLevel? minLevel = _i3.DiagnosticLevel.info}) => super.toString();
 }
 
 class _FakeMatrix4_8 extends _i1.SmartFake implements _i5.Matrix4 {
-  _FakeMatrix4_8(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+  _FakeMatrix4_8(Object parent, Invocation parentInvocation) : super(parent, parentInvocation);
 }
 
 /// A class which mocks [GlobalKey].
@@ -166,11 +154,10 @@ class MockBuildContext extends _i1.Mock implements _i2.BuildContext {
           as _i2.InheritedWidget);
 
   @override
-  void visitAncestorElements(_i2.ConditionalElementVisitor? visitor) =>
-      super.noSuchMethod(
-        Invocation.method(#visitAncestorElements, [visitor]),
-        returnValueForMissingStub: null,
-      );
+  void visitAncestorElements(_i2.ConditionalElementVisitor? visitor) => super.noSuchMethod(
+    Invocation.method(#visitAncestorElements, [visitor]),
+    returnValueForMissingStub: null,
+  );
 
   @override
   void visitChildElements(_i2.ElementVisitor? visitor) => super.noSuchMethod(
@@ -179,11 +166,10 @@ class MockBuildContext extends _i1.Mock implements _i2.BuildContext {
   );
 
   @override
-  void dispatchNotification(_i6.Notification? notification) =>
-      super.noSuchMethod(
-        Invocation.method(#dispatchNotification, [notification]),
-        returnValueForMissingStub: null,
-      );
+  void dispatchNotification(_i6.Notification? notification) => super.noSuchMethod(
+    Invocation.method(#dispatchNotification, [notification]),
+    returnValueForMissingStub: null,
+  );
 
   @override
   _i3.DiagnosticsNode describeElement(
@@ -726,11 +712,10 @@ class MockRenderBox extends _i1.Mock implements _i5.RenderBox {
           as bool);
 
   @override
-  void applyPaintTransform(_i5.RenderObject? child, _i5.Matrix4? transform) =>
-      super.noSuchMethod(
-        Invocation.method(#applyPaintTransform, [child, transform]),
-        returnValueForMissingStub: null,
-      );
+  void applyPaintTransform(_i5.RenderObject? child, _i5.Matrix4? transform) => super.noSuchMethod(
+    Invocation.method(#applyPaintTransform, [child, transform]),
+    returnValueForMissingStub: null,
+  );
 
   @override
   _i4.Offset globalToLocal(_i4.Offset? point, {_i5.RenderObject? ancestor}) =>
@@ -784,39 +769,34 @@ class MockRenderBox extends _i1.Mock implements _i5.RenderBox {
           as bool);
 
   @override
-  void debugPaint(_i5.PaintingContext? context, _i4.Offset? offset) =>
-      super.noSuchMethod(
-        Invocation.method(#debugPaint, [context, offset]),
-        returnValueForMissingStub: null,
-      );
+  void debugPaint(_i5.PaintingContext? context, _i4.Offset? offset) => super.noSuchMethod(
+    Invocation.method(#debugPaint, [context, offset]),
+    returnValueForMissingStub: null,
+  );
 
   @override
-  void debugPaintSize(_i5.PaintingContext? context, _i4.Offset? offset) =>
-      super.noSuchMethod(
-        Invocation.method(#debugPaintSize, [context, offset]),
-        returnValueForMissingStub: null,
-      );
+  void debugPaintSize(_i5.PaintingContext? context, _i4.Offset? offset) => super.noSuchMethod(
+    Invocation.method(#debugPaintSize, [context, offset]),
+    returnValueForMissingStub: null,
+  );
 
   @override
-  void debugPaintBaselines(_i5.PaintingContext? context, _i4.Offset? offset) =>
-      super.noSuchMethod(
-        Invocation.method(#debugPaintBaselines, [context, offset]),
-        returnValueForMissingStub: null,
-      );
+  void debugPaintBaselines(_i5.PaintingContext? context, _i4.Offset? offset) => super.noSuchMethod(
+    Invocation.method(#debugPaintBaselines, [context, offset]),
+    returnValueForMissingStub: null,
+  );
 
   @override
-  void debugPaintPointers(_i5.PaintingContext? context, _i4.Offset? offset) =>
-      super.noSuchMethod(
-        Invocation.method(#debugPaintPointers, [context, offset]),
-        returnValueForMissingStub: null,
-      );
+  void debugPaintPointers(_i5.PaintingContext? context, _i4.Offset? offset) => super.noSuchMethod(
+    Invocation.method(#debugPaintPointers, [context, offset]),
+    returnValueForMissingStub: null,
+  );
 
   @override
-  void debugFillProperties(_i3.DiagnosticPropertiesBuilder? properties) =>
-      super.noSuchMethod(
-        Invocation.method(#debugFillProperties, [properties]),
-        returnValueForMissingStub: null,
-      );
+  void debugFillProperties(_i3.DiagnosticPropertiesBuilder? properties) => super.noSuchMethod(
+    Invocation.method(#debugFillProperties, [properties]),
+    returnValueForMissingStub: null,
+  );
 
   @override
   void reassemble() => super.noSuchMethod(
@@ -891,15 +871,14 @@ class MockRenderBox extends _i1.Mock implements _i5.RenderBox {
   );
 
   @override
-  void layout(_i5.Constraints? constraints, {bool? parentUsesSize = false}) =>
-      super.noSuchMethod(
-        Invocation.method(
-          #layout,
-          [constraints],
-          {#parentUsesSize: parentUsesSize},
-        ),
-        returnValueForMissingStub: null,
-      );
+  void layout(_i5.Constraints? constraints, {bool? parentUsesSize = false}) => super.noSuchMethod(
+    Invocation.method(
+      #layout,
+      [constraints],
+      {#parentUsesSize: parentUsesSize},
+    ),
+    returnValueForMissingStub: null,
+  );
 
   @override
   void invokeLayoutCallback<T extends _i5.Constraints>(
@@ -961,11 +940,10 @@ class MockRenderBox extends _i1.Mock implements _i5.RenderBox {
   );
 
   @override
-  void scheduleInitialPaint(_i5.ContainerLayer? rootLayer) =>
-      super.noSuchMethod(
-        Invocation.method(#scheduleInitialPaint, [rootLayer]),
-        returnValueForMissingStub: null,
-      );
+  void scheduleInitialPaint(_i5.ContainerLayer? rootLayer) => super.noSuchMethod(
+    Invocation.method(#scheduleInitialPaint, [rootLayer]),
+    returnValueForMissingStub: null,
+  );
 
   @override
   void replaceRootLayer(_i5.OffsetLayer? rootLayer) => super.noSuchMethod(
@@ -974,11 +952,10 @@ class MockRenderBox extends _i1.Mock implements _i5.RenderBox {
   );
 
   @override
-  void paint(_i5.PaintingContext? context, _i4.Offset? offset) =>
-      super.noSuchMethod(
-        Invocation.method(#paint, [context, offset]),
-        returnValueForMissingStub: null,
-      );
+  void paint(_i5.PaintingContext? context, _i4.Offset? offset) => super.noSuchMethod(
+    Invocation.method(#paint, [context, offset]),
+    returnValueForMissingStub: null,
+  );
 
   @override
   bool paintsChild(_i5.RenderObject? child) =>
@@ -1019,18 +996,16 @@ class MockRenderBox extends _i1.Mock implements _i5.RenderBox {
   );
 
   @override
-  void describeSemanticsConfiguration(_i5.SemanticsConfiguration? config) =>
-      super.noSuchMethod(
-        Invocation.method(#describeSemanticsConfiguration, [config]),
-        returnValueForMissingStub: null,
-      );
+  void describeSemanticsConfiguration(_i5.SemanticsConfiguration? config) => super.noSuchMethod(
+    Invocation.method(#describeSemanticsConfiguration, [config]),
+    returnValueForMissingStub: null,
+  );
 
   @override
-  void sendSemanticsEvent(_i5.SemanticsEvent? semanticsEvent) =>
-      super.noSuchMethod(
-        Invocation.method(#sendSemanticsEvent, [semanticsEvent]),
-        returnValueForMissingStub: null,
-      );
+  void sendSemanticsEvent(_i5.SemanticsEvent? semanticsEvent) => super.noSuchMethod(
+    Invocation.method(#sendSemanticsEvent, [semanticsEvent]),
+    returnValueForMissingStub: null,
+  );
 
   @override
   void clearSemantics() => super.noSuchMethod(
@@ -1045,11 +1020,10 @@ class MockRenderBox extends _i1.Mock implements _i5.RenderBox {
   );
 
   @override
-  void visitChildrenForSemantics(_i5.RenderObjectVisitor? visitor) =>
-      super.noSuchMethod(
-        Invocation.method(#visitChildrenForSemantics, [visitor]),
-        returnValueForMissingStub: null,
-      );
+  void visitChildrenForSemantics(_i5.RenderObjectVisitor? visitor) => super.noSuchMethod(
+    Invocation.method(#visitChildrenForSemantics, [visitor]),
+    returnValueForMissingStub: null,
+  );
 
   @override
   void assembleSemanticsNode(
@@ -1077,8 +1051,7 @@ class MockRenderBox extends _i1.Mock implements _i5.RenderBox {
           as String);
 
   @override
-  String toString({_i3.DiagnosticLevel? minLevel = _i3.DiagnosticLevel.info}) =>
-      super.toString();
+  String toString({_i3.DiagnosticLevel? minLevel = _i3.DiagnosticLevel.info}) => super.toString();
 
   @override
   String toStringDeep({

@@ -1,9 +1,8 @@
+import 'package:aorlando/core/utils/errors/failure_entity.dart';
+import 'package:aorlando/feature/home/domain/entities/cv_entity.dart';
+import 'package:aorlando/feature/home/domain/use_cases/get_cv_use_case.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../core/utils/errors/failure_entity.dart';
-import '../../domain/entities/cv_entity.dart';
-import '../../domain/use_cases/get_cv_use_case.dart';
 
 part 'home_state.dart';
 

@@ -6,25 +6,16 @@
 import 'dart:async' as _i5;
 
 import 'package:aorlando/core/utils/errors/failure_entity.dart' as _i6;
-import 'package:aorlando/feature/home/domain/entities/contacts_entity.dart'
-    as _i9;
+import 'package:aorlando/feature/home/domain/entities/contacts_entity.dart' as _i9;
 import 'package:aorlando/feature/home/domain/entities/cv_entity.dart' as _i7;
-import 'package:aorlando/feature/home/domain/entities/driving_license_entity.dart'
-    as _i14;
-import 'package:aorlando/feature/home/domain/entities/educations_entity.dart'
-    as _i12;
-import 'package:aorlando/feature/home/domain/entities/languages_entity.dart'
-    as _i13;
-import 'package:aorlando/feature/home/domain/entities/skills_and_competences_entity.dart'
-    as _i15;
-import 'package:aorlando/feature/home/domain/entities/social_link_entity.dart'
-    as _i10;
-import 'package:aorlando/feature/home/domain/entities/work_experiences_entity.dart'
-    as _i11;
-import 'package:aorlando/feature/home/domain/repositories/home_repository.dart'
-    as _i2;
-import 'package:aorlando/feature/home/domain/use_cases/get_cv_use_case.dart'
-    as _i4;
+import 'package:aorlando/feature/home/domain/entities/driving_license_entity.dart' as _i14;
+import 'package:aorlando/feature/home/domain/entities/educations_entity.dart' as _i12;
+import 'package:aorlando/feature/home/domain/entities/languages_entity.dart' as _i13;
+import 'package:aorlando/feature/home/domain/entities/skills_and_competences_entity.dart' as _i15;
+import 'package:aorlando/feature/home/domain/entities/social_link_entity.dart' as _i10;
+import 'package:aorlando/feature/home/domain/entities/work_experiences_entity.dart' as _i11;
+import 'package:aorlando/feature/home/domain/repositories/home_repository.dart' as _i2;
+import 'package:aorlando/feature/home/domain/use_cases/get_cv_use_case.dart' as _i4;
 import 'package:dartz/dartz.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i8;
@@ -44,15 +35,13 @@ import 'package:mockito/src/dummies.dart' as _i8;
 // ignore_for_file: subtype_of_sealed_class
 // ignore_for_file: invalid_use_of_internal_member
 
-class _FakeHomeRepository_0 extends _i1.SmartFake
-    implements _i2.HomeRepository {
+class _FakeHomeRepository_0 extends _i1.SmartFake implements _i2.HomeRepository {
   _FakeHomeRepository_0(Object parent, Invocation parentInvocation)
     : super(parent, parentInvocation);
 }
 
 class _FakeEither_1<L, R> extends _i1.SmartFake implements _i3.Either<L, R> {
-  _FakeEither_1(Object parent, Invocation parentInvocation)
-    : super(parent, parentInvocation);
+  _FakeEither_1(Object parent, Invocation parentInvocation) : super(parent, parentInvocation);
 }
 
 /// A class which mocks [GetCvUseCase].
@@ -80,13 +69,12 @@ class MockGetCvUseCase extends _i1.Mock implements _i4.GetCvUseCase {
   ) =>
       (super.noSuchMethod(
             Invocation.method(#call, [assetPath]),
-            returnValue:
-                _i5.Future<_i3.Either<_i6.FailureEntity, _i7.CvEntity>>.value(
-                  _FakeEither_1<_i6.FailureEntity, _i7.CvEntity>(
-                    this,
-                    Invocation.method(#call, [assetPath]),
-                  ),
-                ),
+            returnValue: _i5.Future<_i3.Either<_i6.FailureEntity, _i7.CvEntity>>.value(
+              _FakeEither_1<_i6.FailureEntity, _i7.CvEntity>(
+                this,
+                Invocation.method(#call, [assetPath]),
+              ),
+            ),
             returnValueForMissingStub:
                 _i5.Future<_i3.Either<_i6.FailureEntity, _i7.CvEntity>>.value(
                   _FakeEither_1<_i6.FailureEntity, _i7.CvEntity>(

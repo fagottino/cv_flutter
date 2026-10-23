@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'vertical_divider_state.dart';
 
 class VerticalDividerCubit extends Cubit<VerticalDividerState> {
-  VerticalDividerCubit() : super(Successfully());
+  VerticalDividerCubit() : super(const Successfully());
 
   void getAndSetBodyHeight({
     required GlobalKey globalKey,

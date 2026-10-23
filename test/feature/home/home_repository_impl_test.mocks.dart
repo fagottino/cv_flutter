@@ -6,23 +6,15 @@
 import 'dart:async' as _i3;
 
 import 'package:aorlando/core/data/requests/base_local_request.dart' as _i4;
-import 'package:aorlando/core/domain/data_sources/local/local_data_source.dart'
-    as _i2;
-import 'package:aorlando/feature/home/domain/entities/contacts_entity.dart'
-    as _i7;
+import 'package:aorlando/core/domain/data_sources/local/local_data_source.dart' as _i2;
+import 'package:aorlando/feature/home/domain/entities/contacts_entity.dart' as _i7;
 import 'package:aorlando/feature/home/domain/entities/cv_entity.dart' as _i5;
-import 'package:aorlando/feature/home/domain/entities/driving_license_entity.dart'
-    as _i12;
-import 'package:aorlando/feature/home/domain/entities/educations_entity.dart'
-    as _i10;
-import 'package:aorlando/feature/home/domain/entities/languages_entity.dart'
-    as _i11;
-import 'package:aorlando/feature/home/domain/entities/skills_and_competences_entity.dart'
-    as _i13;
-import 'package:aorlando/feature/home/domain/entities/social_link_entity.dart'
-    as _i8;
-import 'package:aorlando/feature/home/domain/entities/work_experiences_entity.dart'
-    as _i9;
+import 'package:aorlando/feature/home/domain/entities/driving_license_entity.dart' as _i12;
+import 'package:aorlando/feature/home/domain/entities/educations_entity.dart' as _i10;
+import 'package:aorlando/feature/home/domain/entities/languages_entity.dart' as _i11;
+import 'package:aorlando/feature/home/domain/entities/skills_and_competences_entity.dart' as _i13;
+import 'package:aorlando/feature/home/domain/entities/social_link_entity.dart' as _i8;
+import 'package:aorlando/feature/home/domain/entities/work_experiences_entity.dart' as _i9;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i6;
 

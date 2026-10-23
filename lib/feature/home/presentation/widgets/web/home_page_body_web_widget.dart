@@ -178,11 +178,12 @@ class _HomePageBodyWebWidgetState extends State<HomePageBodyWebWidget> with Widg
                             children: [
                               BlocBuilder<VerticalDividerCubit, VerticalDividerState>(
                                 buildWhen: (previous, current) =>
-                                    (previous as Successfully).bodyHeight !=
-                                    (current as Successfully).bodyHeight,
+                                    previous.footerHeight != current.footerHeight,
                                 builder: (context, state) {
                                   return SizedBox(
-                                    height: (state as Successfully).bodyHeight,
+                                    height: switch (state) {
+                                      Successfully(:final bodyHeight) => bodyHeight,
+                                    },
                                     child: const VerticalDivider(
                                       width: 1,
                                       thickness: 1,
@@ -271,12 +272,13 @@ class _HomePageBodyWebWidgetState extends State<HomePageBodyWebWidget> with Widg
                       // Vertical Divider
                       BlocBuilder<VerticalDividerCubit, VerticalDividerState>(
                         buildWhen: (previous, current) =>
-                            (previous as Successfully).footerHeight !=
-                            (current as Successfully).footerHeight,
+                            previous.footerHeight != current.footerHeight,
                         builder: (context, state) {
                           return SizedBox(
                             width: 1,
-                            height: (state as Successfully).footerHeight,
+                            height: switch (state) {
+                              Successfully(:final footerHeight) => footerHeight,
+                            },
                             child: Container(
                               decoration: const BoxDecoration(
                                 color: AppColors.primaryColor,
